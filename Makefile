@@ -3,7 +3,9 @@ NAME:=scutthesis
 SM_NAME:=sample_test
 all: tar
 
-tar:clean
+tar:
+	git archive master --format=tar.gz --prefix=$(TAR_NAME)/ --verbose -o dist/$(TAR_NAME).tar.gz
+zip:clean
 	mkdir -p $(TAR_NAME)
 	cp -r figure/ $(TAR_NAME)
 	cp  scutthesis.* README.* sample_test.* thesis_cover.* $(TAR_NAME)

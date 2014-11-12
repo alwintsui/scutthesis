@@ -112,7 +112,8 @@
 
 % 中文段首缩进
 \newlength\CJK@twochars %set \CJK@twochars zero
-\def\CJK@spaceChar{\Unicode{48}{7}}
+\def\CJK@spaceChar{\hskip \f@size \p@}
+%%\def\CJK@spaceChar{\Unicode{48}{7}} %delete
 \def\CJKindent{%
     \settowidth\CJK@twochars{\CJK@spaceChar\CJK@spaceChar}%
     \parindent\CJK@twochars}
@@ -210,7 +211,6 @@
 \RequirePackage{booktabs} % 增加对三线表格的支持 % \toprule，\midrule，\bottomrule
 \usepackage{longtable} % 长表格支持，截断跨页
 \RequirePackage{ctable, threeparttable} % 支持表格注释,复杂表格，一般用不上
-\RequirePackage{slashbox} % 表格中的反斜线
 %\RequirePackage{tabularx}
 \captionsetup[table]{position=top}
 %定义双标题命令
