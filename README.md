@@ -1,7 +1,11 @@
 华南理工大学学位论文Latex/Lyx模板
 =============================
 
+<<<<<<< HEAD
 ###NOTICE###
+=======
+===NOTICE===
+>>>>>>> 7eaf1e0e4bcfd7eacae203ac5fcaede79a4a9561
 https://code.google.com/p/scutthesis/ is deprecated after November 11, 2014, and new updates of scutthesis will be released at https://github.com/alwintsui/scutthesis . 
 
 【主要特色】
