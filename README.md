@@ -16,25 +16,26 @@
 
 【设计概要】
 ----------
-    本设计包括两部分：latex模板类和lyx模板布局，书写文档时使用其一即可。其流程框架、模板使用和文件关系如图1。 
 
-    latex模板类包括文本布局类scutthesis.cls和参考文献样式scutthesis.bst。
+本设计包括两部分：latex模板类和lyx模板布局，书写文档时使用其一即可。其流程框架、模板使用和文件关系如图1。 
+
+latex模板类包括文本布局类scutthesis.cls和参考文献样式scutthesis.bst。
 采用XeLATEX排版引擎编辑方式使用Unicode编码克服多种字体带来麻烦。在传统的Tex使用方式中（way 1），
 先用Tex编辑器直接输入你的论文内容(参照例子scutthesis.tex格式)，再运行xelatex，
 其调用scutthesis.cls和scutthesis.bst就可以格式化为符合华南理工大学学位论文的排版要求。注意摘要之前的几页排版内容，
 如标题和版权页，是以pdf文件方式包括在tex文件中，发布包中提供了相应word的.doc版文件，请自行修改再转换为pdf文件。 
 
-    你也可以通过lyx间接地使用latex模板类（图中way 2），不需要直面latex源代码。
+你也可以通过lyx间接地使用latex模板类（图中way 2），不需要直面latex源代码。
 在lyx中采用scutthesis.layout布局，输入你的论文内容如scutthesis.lyx格式，
 再一键调用xelatex自动编译成scutthesis.tex文件，并加入scutthesis.cls和scutthesis.bst生成最终的pdf文件。 
 
-    详细的设计内容，见发布包中的scutthesis.pdf文件。 图1:
+详细的设计内容，见发布包中的scutthesis.pdf文件。 图1:
 ![framework] (figure/scutthesis.png "framework")
 
 【适用对象】
 ----------
 
- 所有能够运行Latex的系统，和所有能够运行lyx的系统（可选） 
+所有能够运行Latex的系统，和所有能够运行lyx的系统（可选） 
 
 1.    Linux(ubuntu)测试过的环境为Texlive2009+lyx；
 2.    Windows测试过的环境为Ctex + miktex+lyx；
@@ -130,5 +131,5 @@ Jun 23, 2010 模板的初版已经完成，基本达到了课程论文和博士�
 
 【责任声明】
 ----------
-    本模板采用GPL3版权，发布的目的是最大程度减轻华工学生论文排版的工作，本项目虽然基本完善，
+ 本模板采用GPL3版权，发布的目的是最大程度减轻华工学生论文排版的工作，本项目虽然基本完善，
 但难免有不足之处，对此引起的论文事故不承担相应负责！（补充：本模板格式完全可通过华工学位办和图书馆审核） 
