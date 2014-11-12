@@ -1,6 +1,9 @@
 华南理工大学学位论文Latex/Lyx模板
 =============================
 
+===NOTICE===
+https://code.google.com/p/scutthesis/ is deprecated after November 11, 2014, and new updates of scutthesis will be released at https://github.com/alwintsui/scutthesis . 
+
 【主要特色】
 ----------
 
@@ -41,7 +44,7 @@ latex模板类包括文本布局类scutthesis.cls和参考文献样式scutthesis
 2.    Windows测试过的环境为Ctex + miktex+lyx；
 3.    MAC OS X测试过的环境为Mactex2011+Lyx2.0。 
 
-    _源代码采用了Mercurial进行版本控制，最近更新版直接用hg clone下来，而对于稳定的版本可直接去Downloads区下载。_
+_源代码采用了Mercurial进行版本控制，最近更新版直接用hg clone下来，而对于稳定的版本可直接去Downloads区下载。_
 
 
 
