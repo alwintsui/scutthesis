@@ -18,9 +18,13 @@
 ----------
     本设计包括两部分：latex模板类和lyx模板布局，书写文档时使用其一即可。其流程框架、模板使用和文件关系如图1。 
 
-    latex模板类包括文本布局类scutthesis.cls和参考文献样式scutthesis.bst。采用XeLATEX排版引擎编辑方式使用Unicode编码克服多种字体带来麻烦。在传统的Tex使用方式中（way 1），先用Tex编辑器直接输入你的论文内容(参照例子scutthesis.tex格式)，再运行xelatex，其调用scutthesis.cls和scutthesis.bst就可以格式化为符合华南理工大学学位论文的排版要求。注意摘要之前的几页排版内容，如标题和版权页，是以pdf文件方式包括在tex文件中，发布包中提供了相应word的.doc版文件，请自行修改再转换为pdf文件。 
+    latex模板类包括文本布局类scutthesis.cls和参考文献样式scutthesis.bst。采用XeLATEX排版引擎编辑方式使用Unicode编码克服多种字体带来麻烦。
+在传统的Tex使用方式中（way 1），先用Tex编辑器直接输入你的论文内容(参照例子scutthesis.tex格式)，再运行xelatex，
+其调用scutthesis.cls和scutthesis.bst就可以格式化为符合华南理工大学学位论文的排版要求。注意摘要之前的几页排版内容，
+如标题和版权页，是以pdf文件方式包括在tex文件中，发布包中提供了相应word的.doc版文件，请自行修改再转换为pdf文件。 
 
-    你也可以通过lyx间接地使用latex模板类（图中way 2），不需要直面latex源代码。在lyx中采用scutthesis.layout布局，输入你的论文内容如scutthesis.lyx格式,再一键调用xelatex自动编译成scutthesis.tex文件，并加入scutthesis.cls和scutthesis.bst生成最终的pdf文件。 
+    你也可以通过lyx间接地使用latex模板类（图中way 2），不需要直面latex源代码。在lyx中采用scutthesis.layout布局，
+输入你的论文内容如scutthesis.lyx格式,再一键调用xelatex自动编译成scutthesis.tex文件，并加入scutthesis.cls和scutthesis.bst生成最终的pdf文件。 
 
     详细的设计内容，见发布包中的scutthesis.pdf文件。 图1:
 ![framework] (figure/scutthesis.png "framework")
@@ -101,7 +105,9 @@ Jul 11, 2010 在download区，添加使用方法视频演示文件scutthesis_lyx
 
 Jun 27, 2010 发布1.0版本，含Latex+Lyx博士学位论文模板，不含课程论文模板。 
 
-Jun 23, 2010 模板的初版已经完成，基本达到了课程论文和博士论文要求的格式规范（不排除有些未知的格式），在ubuntu 10.04 LTS下，用Lyx layout先输入内容，再用XeLatex (texlive2009)顺利编译成了pdf文件，一切正常,相关文件等稍加整理后发布。时间待定，如急需请email: alwintsui@gmail.com 联系索取！ 
+Jun 23, 2010 模板的初版已经完成，基本达到了课程论文和博士论文要求的格式规范（不排除有些未知的格式），
+	在ubuntu 10.04 LTS下，用Lyx layout先输入内容，再用XeLatex (texlive2009)顺利编译成了pdf文件，
+	一切正常,相关文件等稍加整理后发布。
 
 【期望目标】
 ----------
