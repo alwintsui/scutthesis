@@ -94,8 +94,7 @@ status open
 
 
 \backslash
-includepdf[pages=-]{/home/xzhou/hack_tools/tex/scutthesis/thesis_cover.pdf}%pdf修改
-为你的绝对路径名
+includepdf[pages=-]{thesis_cover.pdf}%pdf修改为你的路径名
 \end_layout
 
 \begin_layout Plain Layout
