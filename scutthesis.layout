@@ -1,0 +1,220 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[scutthesis]{book (SCUT Thesis)}
+# SCUT Thesis textclass definition file. Taken from initial LyX source code
+# Author :Alwin Tsui <alwintsui@gmail.com>
+# v.1.0  Jun 20,2010
+# v.1.1  Mar 30,2011,�޸�appendix
+
+
+Format 11
+Columns                 1
+Sides                   1
+PageStyle               Headers
+Provides natbib-internal	1
+Provides url		1
+
+# Default textclass options. The user may need to modify this.
+ClassOptions
+	Other                 "unicode"#,doctor"
+End
+
+
+Style Standard
+	Margin                Static
+	LatexType             Paragraph
+	LatexName             dummy
+	ParIndent             MM
+	ParSkip               0.4
+	Align                 Block
+	AlignPossible         Block, Left, Right, Center
+	LabelType             No_Label
+End
+
+Input stdsections.inc
+Input stdinsets.inc
+Input numreport.inc
+
+
+Style Chapter
+        Align                 Center
+        AlignPossible         Block, Center, Left
+        Font
+          Series              Medium
+          Shape               Smallcaps
+          Size                Large
+        EndFont
+End
+
+Style Section
+	Align                 Left
+	AlignPossible         Block, Center, Left
+	Font
+	  Series              Medium
+	  Shape               Smallcaps
+	  Size                Large
+	EndFont
+End
+
+
+Style Subsection
+	Font
+	  Series              Bold
+	  Size                Normal
+	EndFont
+End
+
+Style Subsubsection
+	Font
+	  Shape               Italic
+	  Size                Normal
+	EndFont
+End
+
+
+Style Paragraph
+	TopSep                0.7
+	ParSep                0.4
+	Font
+	  Shape               Italic
+	  Size                Normal
+	EndFont
+End
+
+# then define the unumbered sections, based on the numbered ones.
+Input stdstarsections.inc
+
+NoStyle         Chapter*
+NoStyle         Subparagraph*
+
+Input stdlayouts.inc
+Input stdlists.inc
+#Input stdtitle.inc
+Input stdstruct.inc
+
+
+Style Abstract
+	LatexType             Environment
+	InTitle               0
+	LatexName             abstractCn
+	Category		FrontMatter
+	ItemSep               0.2
+	ParSep                0.3
+	LabelFont
+	  Size                Large
+	EndFont
+End
+ 
+Style Keywords
+	Margin                Dynamic
+	LatexType             Command
+	InTitle               0
+	Category			FrontMatter
+	LatexName             keywordsCn
+	LabelType             Static
+	LabelSep              M
+	LabelString           "关键字："
+End
+
+
+Style AbstractEn
+        CopyStyle	     Abstract
+        LatexName             abstractEn
+        LabelString           "Abstract"
+		LabelFont
+          Size                Normal
+          Shape               Italic
+        EndFont
+
+End
+Style KeywordsEn
+	CopyStyle	     Keywords               
+	Latexname             keywordsEn
+	LabelString           "Keywords:"
+End
+
+Style Preface
+	CopyStyle	      Chapter
+	LabelString	      "Preface"
+	LatexName		preface
+	Category		FrontMatter
+End
+
+Style Appendix
+	CopyStyle	      Chapter
+	LabelString	      "Appendix"
+	LatexName		appendix
+	Category		BackMatter
+End
+
+
+Input stdfloats.inc
+Input stdcounters.inc
+
+
+Counter example
+End
+Style Example
+        CopyStyle             Definition
+	LatexName             example
+	LabelCounter          example
+	LabelString           "Example \theexample."
+End
+
+Counter remark
+End
+Style Remark
+        CopyStyle             Definition
+	LatexName             remark
+	LabelCounter          remark
+	LabelString           "Remark \theremark."
+End
+
+Counter notation
+End
+Style Notation
+        CopyStyle             Definition
+	LatexName             notation
+	LabelCounter          notation
+	LabelString           "Notation \thenotation."
+End
+
+Counter theorem
+End
+Style Theorem
+	LatexType             Environment
+	LatexName             theorem
+	Margin                First_Dynamic
+	TopSep                0.6
+	BottomSep             0.6
+	Align                 Block
+	NextNoIndent          1
+	LabelType             Counter
+	LabelCounter          theorem
+	LabelString           "Theorem \thetheorem."
+	LabelSep              M
+	LabelFont
+	  Series              Bold
+	  Shape               Up
+	EndFont
+	TextFont
+	  Shape               Italic
+	EndFont
+End
+
+Style Proof
+	LatexType             Environment
+	LatexName             proof
+	Margin                First_Dynamic
+	TopSep                0.6
+	BottomSep             0.6
+	Align                 Block
+	LabelType             Static
+	LabelString           "Proof."
+	LabelSep              M
+	LabelFont
+	  Series              Bold
+	EndFont
+	EndLabelType          Box
+End
+
+

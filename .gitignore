@@ -1,0 +1,14 @@
+.hg
+.hgignore
+.hgtags
+.cproject
+.project
+/dist
+/doc
+test/test.aux
+test/test.bbl
+test/test.blg
+test/test.lof
+test/test.log
+test/test.lot
+test/test.toc
