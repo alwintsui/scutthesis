@@ -3,6 +3,7 @@
 \begin_document
 \begin_header
 \textclass scutthesis
+\options pdfcover
 \use_default_options true
 \maintain_unincluded_children false
 \language chinese-simplified
