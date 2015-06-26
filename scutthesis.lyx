@@ -3,15 +3,12 @@
 \begin_document
 \begin_header
 \textclass scutthesis
-\begin_preamble
-
-\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language chinese-simplified
 \language_package none
-\inputencoding utf8-plain
-\fontencoding default
+\inputencoding auto
+\fontencoding global
 \font_roman default
 \font_sans default
 \font_typewriter default
@@ -86,16 +83,33 @@
 
 \begin_body
 
+\begin_layout Title
+Latex 与 Lyx 排版研究
+\end_layout
+
+\begin_layout Author
+徐川页
+\end_layout
+
+\begin_layout Supervisor
+指导教师：高德纳
+\begin_inset space \space{}
+\end_inset
+
+教授
+\end_layout
+
+\begin_layout Institue
+华南理工大学
+\end_layout
+
+\begin_layout Date
+2010年4月13日
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includepdf[pages=-]{thesis_cover.pdf}%pdf修改为你的路径名
-\end_layout
 
 \begin_layout Plain Layout
 
@@ -109,7 +123,7 @@ frontmatter
 
 \end_layout
 
-\begin_layout Abstract
+\begin_layout AbstractCN
 论文排版对科技工作者来说一直是一个公认的繁琐事情。使用LaTeX排版的突出缺点是控制符和文本符同时显现，容易干扰用户文本内容输入。鉴于此，本文提出了一种新颖的L
 yX+XeLaTeX+LaTeX组合的论文排版编辑方式。该排版方式取LyX之长弥补LaTeX的不足点，使得同时具有MS
 \begin_inset space \space{}
@@ -119,11 +133,11 @@ Word和TeX排版两方面优势，同时基于Uincode的XeLaTeX引擎不仅使�
 LaTeX/LyX模板为例，验证了该组合方式的可行性。
 \end_layout
 
-\begin_layout Keywords
+\begin_layout KeywordsCN
 LaTeX；LyX；排版；论文
 \end_layout
 
-\begin_layout AbstractEn
+\begin_layout AbstractEN
 Typesetting is a long-standing notorious troublesome for the scientific
  researchers.
  The noticeable drawback in LaTeX typesetting is that control characters
@@ -140,7 +154,7 @@ Typesetting is a long-standing notorious troublesome for the scientific
  combination.
 \end_layout
 
-\begin_layout KeywordsEn
+\begin_layout KeywordsEN
 LaTeX; LyX; Typesetting; Paper
 \end_layout
 
@@ -169,7 +183,7 @@ LatexCommand tableofcontents
 
 \end_layout
 
-\begin_layout Preface
+\begin_layout Chapterx
 主要符号对照表
 \end_layout
 
@@ -364,7 +378,7 @@ status collapsed
 
 \end_layout
 
-\begin_layout Preface
+\begin_layout Chapterx
 英文缩略词
 \end_layout
 
@@ -564,7 +578,7 @@ mainmatter
 \end_layout
 
 \begin_layout Section
-研究目的
+研究意义
 \end_layout
 
 \begin_layout Standard
@@ -1343,15 +1357,27 @@ texmaker.ini" 修改如下：
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 User
 \backslash
 ToolName1=XeLaTeX
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 User
 \backslash
 Tool1="xelatex -interaction=nonstopmode %.tex"
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1366,12 +1392,11 @@ name "sub:LyX_XeLaTeX"
 \end_layout
 
 \begin_layout Standard
-现行LyX版本1.6.7默认没有增加XeLaTeX编译按钮（Lyx2.0已经加入），必须自行在toolbar上加入一些功能调用按钮，如view PDF(xelatex
-)等菜单命令。
-\end_layout
+Lyx2.0以后的版本默认支持XeLaTeX编译，而早期LyX版本如1.6.7必须自行在toolbar上加入一些功能调用按钮，如view
+\begin_inset space \space{}
+\end_inset
 
-\begin_layout Standard
-如何在LyX下调用xetex编译LaTeX文档，参加LyX官方wiki
+PDF(xelatex)等菜单命令。如何在LyX下调用xetex编译LaTeX文档，参加LyX官方wiki
 \begin_inset CommandInset citation
 LatexCommand cite
 key "xetex_lyx"
@@ -1412,12 +1437,13 @@ LaTeX是一个所见非所得的方式，使用起来不是那么直接，入门
 \end_layout
 
 \begin_layout Enumerate
-中英文封面及原创说明等
+论文封面是通过maketile生成，有内置简单版和外部pdf导入版两种，在调用scutthesis.cls时加入pdfcover选项将使用pdf导入封面，它会将本
+地目录下名为thesis_cover.pdf的文件作为封面页，该pdf文件一般包含中英文封面及原创说明等
 \emph on
 摘要前的内容
 \emph default
-以pdf形式(thesis_cover.pdf)合并到LaTeX源码中一起编译，直接包含进来避免了一些繁琐的细节问题，减轻用户的使用困难。该thesis_cove
-r.pdf可以从填好的微软.doc文件转换而来
+，这些pdf页会被合并到LaTeX源码中一起编译，直接包含外部pdf作为封面避免了一些繁琐的细节问题，减轻用户的使用困难。该thesis_cover.pdf可以从
+填好的微软.doc文件转换而来
 \begin_inset Foot
 status open
 
@@ -1428,7 +1454,7 @@ Linux下用openoffice，window下用MC word将.doc转为.pdf文件
 \end_inset
 
 ，word页面可以到“研究生院主页网站->学位办公室->下载区”下载最新“研究生学位论文撰写规范”文档中找到。使用这种方式注意力将集中到论文的正文部分，这点不同
-于现存的各高校LaTeX模板。
+于现存的各高校LaTeX模板。如果在调用scutthesis模板类之前没有使用pdfcover选项，将使用内置简单封面（适用于草稿模式）。
 \end_layout
 
 \begin_layout Enumerate
@@ -1635,7 +1661,7 @@ name "fig:scutthesis_framework"
 \end_layout
 
 \begin_layout Standard
-本设计的源码下载地址为：http://code.google.com/p/scutthesis/ 。
+本设计的源码下载地址为：https://github.com/alwintsui/scutthesis 。
 \end_layout
 
 \begin_layout Chapter
@@ -1800,7 +1826,29 @@ status open
 
 
 \backslash
-documentclass[unicode]{scutthesis} %draftmode
+documentclass[unicode,pdfcover]{scutthesis}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage[unicode=false,bookmarks=true,bookmarksnumbered=true,bookmarksopen=fal
+se,
+\end_layout
+
+\begin_layout Plain Layout
+
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=true]
+\end_layout
+
+\begin_layout Plain Layout
+
+ {hyperref}
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1855,9 +1903,13 @@ begin{document}
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
-includepdf[pages=-]{thesis_cover.pdf} % covered from word doc
+maketitle % include thesis_cover.pdf covered from word doc
 \end_layout
 
 \begin_layout Plain Layout
@@ -2016,9 +2068,20 @@ scutthesis需要使用unicode 编码，
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 
 \backslash
 documentclass[unicode]{scutthesis}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2026,19 +2089,102 @@ documentclass[unicode]{scutthesis}
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 
 \backslash
 documentclass[unicode,master]{scutthesis} 
 \end_layout
 
-\begin_layout Standard
-初稿模式：在初稿模式，latex 的编译速度较快，还可以给文档加上水印及日期，可 选，
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+pdfcover选项将在maketitle中调用thesis_cover.pdf，如果没有pdfcover将需要在
+\backslash
+begin{document}之后设置调用
+\backslash
+title、
+\backslash
+author、
+\backslash
+supervisor、
+\backslash
+institute和
+\backslash
+date指令设置基本信息，例如：
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 
 \backslash
-documentclass[unicode,master,draftmode]{scutthesis} 
+title{Latex 与 Lyx 排版研究}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+author{徐顺}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+supervisor{指导教师：高德纳 教授}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+institute{华南理工大学}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+date{2010年4月13日}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+使用内置简单封面可加快latex 的编译速度，适合草稿模式。
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+documentclass[unicode,pdfcover]{scutthesis} 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2046,26 +2192,41 @@ documentclass[unicode,master,draftmode]{scutthesis}
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 
 \backslash
 hypersetup{ 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 unicode=true,
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 pdftitle={论文的题目}.
  % 题目 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 pdfauthor = {你的名字},% 作者
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 }
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2176,39 +2337,56 @@ Latex一般插图格式为
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+lstparams "language=TeX"
+inline false
+status open
+
+\begin_layout Plain Layout
+
 
 \backslash
 begin{figure}[H] 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 
 \backslash
 centering
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 
 \backslash
 includegraphics[scale=0.4]{figure/scutlogo.eps}
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 
 \backslash
 FigureBicaption{华工}{SCUT} 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 
 \backslash
 label{fig:single} 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 
 \backslash
 end{figure}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2671,12 +2849,25 @@ LyX只是提供一种编辑框架，此模板提供scutthesis.layout让LyX识别
 \end_layout
 
 \begin_layout Enumerate
-把scutthesis项目发行包里面的 scutthesis.layout放置到路径 ~/.lyx/layouts/scutthesis.layout；
+把scutthesis项目发行包里面的 scutthesis.layout放置到主lyx文件的同目录或者路径 ~/.lyx/layouts/scutthesis.la
+yout；
 \end_layout
 
 \begin_layout Enumerate
-打开LyX软件，点击运行：tools->reconfigure，之后在LyX中的 document->settings->document class下拉列表中
-能够找到book(SCUT Thesis)项，表示已经配置成功。
+打开LyX软件，新建主lyx文件（用于书写论文内容），点击运行：tools->reconfigure，之后在LyX中的document->settings->d
+ocument
+\begin_inset space \space{}
+\end_inset
+
+class下拉列表中能够找到book(SCUT
+\begin_inset space \space{}
+\end_inset
+
+Thesis)项，或者选择local
+\begin_inset space \space{}
+\end_inset
+
+layout打开文件选择scutthesis.layout，表示已经配置成功。
 \end_layout
 
 \begin_layout Enumerate
@@ -2702,8 +2893,19 @@ Aditional options的值通常情况下各链接的颜色可以不一致，如：
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 unicode=false,linkcolor=blue, anchorcolor=black, citecolor=olive, filecolor=mage
 nta, menucolor=red, urlcolor=magenta, pdfstartview=FitH
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2711,8 +2913,19 @@ nta, menucolor=red, urlcolor=magenta, pdfstartview=FitH
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 unicode=false,linkcolor=black, anchorcolor=black, citecolor=black, filecolor=bla
 ck, menucolor=black, urlcolor=black, pdfstartview=FitH
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2879,42 +3092,10 @@ latex=xelatex
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-backmatter
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "scutthesis"
 options "scutthesis"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pagestyle{appendix_style}
-\end_layout
 
 \end_inset
 
@@ -2990,23 +3171,39 @@ CTex宏库默认支持winfonts和adboefonts。因此要在linux系统下使用Ct
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+lstparams "language=bash"
+inline false
+status open
+
+\begin_layout Plain Layout
+
 :~/.fonts/winfonts$ls
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 arialbd.ttf ARIALNB.TTF ariblk.ttf cour.ttf SIMLI.TTF timesbi.ttf
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 arialbi.ttf ARIALNI.TTF courbd.ttf simfang.ttf simsun.ttc timesi.ttf 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 ariali.ttf ARIALN.TTF courbi.ttf simhei.ttf SIMYOU.TTF times.ttf
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 ARIALNBI.TTF arial.ttf couri.ttf simkai.ttf timesbd.ttf 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3103,7 +3300,19 @@ Texlive是TEX的一个集成发行包，相关介绍见http://tug.org/texlive/do
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+lstparams "language=bash"
+inline false
+status open
+
+\begin_layout Plain Layout
+
 sudo apt-get install perl-tk 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3111,8 +3320,20 @@ sudo apt-get install perl-tk
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},language=bash"
+inline false
+status open
+
+\begin_layout Plain Layout
+
 sudo ./install-tl -repository http://ftp.ctex.org/mirrors/CTAN/systems/texlive/tlne
-t/ -gui 
+t/ -gui
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3240,31 +3461,48 @@ local/texlive/2011/install-tl.log，其中可找到一些路径信息：
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 TEXDIR: "/usr/local/texlive/2011"
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 TEXMFCONFIG: "~/.texlive2011/texmf-config"
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 TEXMFHOME: "~/texmf" 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 TEXMFLOCAL: "/usr/local/texlive/texmf-local" 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 TEXMFSYSCONFIG: "/usr/local/texlive/2011/texmf-config" 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 TEXMFSYSVAR: "/usr/local/texlive/2011/texmf-var" 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 TEXMFVAR: "~/.texlive2011/texmf-var"
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3299,29 +3537,45 @@ st/tex/Latex/ctex/
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+lstparams "language=TeX"
+inline false
+status open
+
+\begin_layout Plain Layout
+
 %test.tex
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 
 \backslash
 documentclass{ctexart}
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 
 \backslash
 begin{document}
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 中文宏包测试
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 
 \backslash
 end{document} 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3330,7 +3584,7 @@ ive，texlive-base和texlive-lang-latin等等，对于初学者可能不知道�
 l-tl gui安装方式（lyx也推荐使用编译源代码方式安装）。
 \end_layout
 
-\begin_layout Appendix
+\begin_layout Chapterx
 攻读博士学位期间取得的研究成果
 \end_layout
 
@@ -3822,16 +4076,12 @@ SCI
 
 \end_layout
 
-\begin_layout Appendix
+\begin_layout Chapterx
 致谢
 \end_layout
 
 \begin_layout Standard
-首先感谢国家，感谢党；感谢导师对我的指导，感谢父母亲对我的期望！
-\end_layout
-
-\begin_layout Standard
-同时感谢华工校内外多位同学对该模板的测试和提供的改进。
+感谢导师对我的悉心指导，同时感谢华工校内外多位同学对该模板的测试和提供的改进。
 \end_layout
 
 \begin_layout Standard

@@ -1,8 +1,8 @@
-% Copyright (C) 2010-2011 by Alwin Tsui <alwintsui@gmail.com>
+% Copyright (C) 2010-2015 by Alwin Tsui <alwintsui@gmail.com>
 % and Quansheng Guan <qshguan@gmail.com>
 % 
 % This file is part of the scutthesis package project.
-% http://scutthesis.googlecode.com/
+% https://github.com/alwintsui/scutthesis
 % ---------------------------------------------------
 % This file may be distributed and/or modified under the
 % conditions of the GNU General Public License v3
@@ -10,44 +10,37 @@
 % 
 % modified from thuthesis.cls,seuthesis.cls and tjthesis.cls
 
-% 本cls只对中文摘要开始的格式进行设置，至于论文签名的标题，版权声明等，建议到研究生院下载doc版本，
-% 填写好转换为pdf格式，再用pdfpages宏include进latex文档。
-
-%% Jun 19,2010.参照现有国内各高校论文latex模板(东南，清华，北航等)，取其精华去其糟粕，写成初版
-%% Jun 20,2010,修改abstract,keywords,Appendence支持lyx的scutthesis.layout
-%% Jun 22,2010,用natbib来控制引用标的显示
-%% v2.0.1, Mar 31,2011,合并了Quansheng Guan部分修改,主要包含：草稿引入水印，加入定理环境，完善标题、表格和程序代码等格式
-
+%% Jun 19, 2010.参照现有国内各高校论文latex模板(东南，清华，北航等)，取其精华去其糟粕，写成初版
+%% Jun 20, 2010,修改abstract,keywords,Appendence支持lyx的scutthesis.layout
+%% Jun 22, 2010,用natbib来控制引用标的显示
+%% v2.0.1, Mar 31, 2011,合并了Quansheng Guan部分修改,主要包含：草稿引入水印，加入定理环境，完善标题、表格和程序代码等格式
+%% v2.1.0, Jun 20, 2015,启用pdfcover选项，修改代码区显示方式，附录页眉，去除草稿水印，lyx模板
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{scutthesis}[2011/03/31 2.0.1 The LaTeX class for the thesis of South China University of Technology]
 
 %% import global options
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \newif\ifmasterdegree\masterdegreefalse %默认为doctor
-\newif\ifpdfcover\pdfcoverfalse % To do
-\newif\ifdraftmode\draftmodefalse % added by Quansheng Guan, 初稿加上水印背景
-\DeclareOption{draftmode}{\draftmodetrue} % added by Quansheng Guan
+\newif\ifpdfcover\pdfcoverfalse
+\newif\ifchapterx\chapterxfalse
 
 \DeclareOption{master}{\masterdegreetrue}
 \DeclareOption{pdfcover}{\pdfcovertrue} %using pdfcover,TOdo
-
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax %revised by Quansheng Guan \ProcessOptions
 \LoadClass[12pt,a4paper,openany]{book}
-
-\newif\ifonepage\onepagefalse
 
 %% define 几个宏
 \newcommand{\scutthesis}{%
   S\hspace{-0.3ex}\raisebox{-0.5ex}{C}\hspace{-0.3ex}U\hspace{0.1em}\raisebox{-0.5ex}{T}%
   \textsc{Thesis}
 }
+\def \institute#1{\gdef\@institute{#1}}
+\def \supervisor#1{\gdef\@supervisor{#1}}
 \ifmasterdegree \newcommand{\@degree}{硕士} \else \newcommand{\@degree}{博士} \fi
 \newcommand{\thesissubject}{华南理工大学\@degree{}学位论文}
 \renewcommand{\today}{\the\year~年~\the\month~月~\the\day~日}
-
 
 %% 加载几个常用的sty packages
 \RequirePackage{ifpdf}
@@ -61,10 +54,6 @@
 \RequirePackage[final]{pdfpages}
 \RequirePackage{color}
 %\RequirePackage{prettyref} %不需要
-\ifdraftmode 
-   \RequirePackage{draftwatermark} %  added by Quansheng Guan, 初稿加上水印背景
-   \SetWatermarkText{初稿\small\today}
-\fi
 
 %% 设置页面布局
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -203,8 +192,6 @@
     \subfloat[\vspace{-5pt}#1]{#4}
   }%
 }
- 
-
 
 %% 表格 
 \RequirePackage{array} % 扩展了 array 和 tabular 环境功能
@@ -270,51 +257,31 @@
 \renewcommand\thealgocf{\csname the\algocf@within\endcsname-\@arabic\c@algocf}%
 
 \RequirePackage{listings}
+\definecolor{mygray}{RGB}{245,245,245}
 \lstset{
   tabsize=4, %
-  frame=shadowbox, %把代码用带有阴影的框圈起来
-  commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释
+  frame=tb,
+  commentstyle=\color{red!50!green!50!blue!50},
   rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
-  keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
+  keywordstyle=\color{blue!90}\bfseries,
+  backgroundcolor=\color{mygray},
   showstringspaces=false,%不显示代码字符串中间的空格标记
-  stringstyle=\ttfamily, % 代码字符串的特殊格式
+  stringstyle=\ttfamily,
+  basicstyle={\footnotesize\ttfamily},
+  breaklines=true, 
   keepspaces=true, %
-  breakindent=22pt, %
-  numbers=left,%左侧显示行号
-  stepnumber=1,%
-  numberstyle=\tiny, %行号字体用小号
-  basicstyle=\footnotesize, %
-  showspaces=false, %
   flexiblecolumns=true, %
-  breaklines=true, %对过长的代码自动换行
-  breakautoindent=true,%
-  breakindent=4em, %
-  %aboveskip=1em, %代码块边框
-  %% added by http://bbs.ctex.org/viewthread.php?tid=53451
+  lineskip=-0.1pt,%行距
   fontadjust,
   captionpos=t,
-  framextopmargin=2pt,framexbottommargin=2pt,abovecaptionskip=-3pt,belowcaptionskip=3pt,
-  xleftmargin=4em,xrightmargin=4em, % 设定listing左右的空白
-  % texcl=true,
-  % 设定中文冲突，断行，列模式，数学环境输入，listing数字的样式
-  extendedchars=false,columns=flexible,mathescape=false
-  numbersep=-1em
+  framextopmargin=1pt,framexbottommargin=1pt,abovecaptionskip=-1pt,belowcaptionskip=1pt,
+  %xleftmargin=4em,xrightmargin=4em, % 设定listing左右的空白
+ extendedchars=false,columns=flexible,mathescape=false
+  breakautoindent=true
 }
 \renewcommand{\lstlistingname}{代码} %% 重命名Listings标题头 added by Guan
 
 %参考文献bibi style
-%%%%%%%%%%%%%%%%%%%%%%
-%\bibliographystyle{scutthesis}
-%\renewcommand\@biblabel[1]{#1}  % Reference list option change from [1] to 1
-\let\orig@bibliography=\bibliography
-\renewcommand{\bibliography}[1]{
-	\clearpage % 使参考文献使用 seunolabel 页面样式
-	\refbodyfont
-	\orig@bibliography{#1}
-	\normalsize
-} 
-
-\RequirePackage{array} % 扩展了 array 和 tabular 环境功能
 \RequirePackage[nottoc]{tocbibind} % 将参考文献、索引、表格目录和图形
 \renewcommand{\bibname}{参考文献}
 
@@ -359,56 +326,40 @@
 
 %\sethead[ even-left ][ even-center ][ even-right ]    { odd-left }{ odd-center }{ odd-right }
 \newpagestyle{revtitlestyle}{
+ \ifchapterx 
+  \sethead[][{\headfont{}\@chapterxname}][] % 页眉奇偶数页
+  {}{{\headfont{}\thesissubject}}{} % 页眉奇数页
+ \else
   \sethead[][{\headfont{}\thesissubject}][] % 页眉偶数页，五号字体，居中
   {}{{\headfont{}\chaptertitlename\quad\chaptertitle}}{} % 页眉奇数页，五号字体，居中
-  \setfoot{}{\headfont{}\thepage}{}%页码五号宋体居中
+ \fi
+  \setfoot[][\headfont{}\thepage][] %偶数页码五号宋体居右
+   {}{\headfont{}\thepage}{}%页码五号宋体居右
   \headrule%上横线
   \setheadrule{1.5pt}%设置横线粗细
-
 }
-% added by Quansheng Guan
-% page style for chapters without label number
-\newpagestyle{nolabelchapterstyle}{
-    \sethead[][{\headfont{}\thesissubject}][] % 页眉偶数页，五号字体，居中
-    {}{{\headfont\chaptertitle}}{} % 页眉奇数页，五号字体，居中, no label
-    \setfoot{}{\headfont{}\thepage}{}%页码五号宋体居中
-    \headrule%上横线
-    \setheadrule{1.5pt}%设置横线粗细
+
+\let\orig@bibliography=\bibliography
+\renewcommand{\bibliography}[1]{
+	\cleardoublepage % 使参考文献使用 seunolabel 页面样式
+	\refbodyfont
+        \chapterxtrue % 改变页眉标题方式
+        \chapterxname{\bibname}
+	\let\ps@plain=\ps@revtitlestyle
+	\pagestyle{revtitlestyle} % here and continue 
+	\orig@bibliography{#1}
+	\normalsize
 } 
 
-\newpagestyle{appendix_style}{ %针对附录的特殊要求，以section而不是chapter为页眉。
-    \sethead[][{\headfont{}\thesissubject}][] % 页眉偶数页，五号字体，居中
-    {}{{\headfont\thesection\quad\sectiontitle}}{} % 页眉奇数页，五号字体，居中, no label
-    \setfoot{}{\headfont{}\thepage}{}%页码五号宋体居中
-    \headrule%上横线
-    \setheadrule{1.5pt}%设置横线粗细
-} 
-
-\newpagestyle{frontstyle}{ 
-  \setfoot{}{\thepage}{}
-}
-%%%%%%
-\newcommand{\myclearpage}{%
-  \ifonepage
-    \clearpage
-  \else
-    \cleardoublepage
-  \fi
-}
-
-\renewcommand\frontmatter{
-    %\@frontmattertrue % added by Quansheng Guan
-    \pagestyle{empty}  % added by Quansheng Guan 摘要之前的部分不需要页码
-    \myclearpage
+\renewcommand\frontmatter{ %标题之后，开始中英文摘要，目录
     \pagenumbering{Roman}% Roman style page number
-    % added by Quansheng Guan
-    \let\ps@plain=\ps@frontstyle
     \pagestyle{plain}
-	\@mainmatterfalse
+    \@mainmatterfalse
 }%
 
 \renewcommand\mainmatter{%
-  \@mainmattertrue
+ \@mainmattertrue
+  \chapterxfalse % 改变页眉标题方式
   \ifodd \arabic{page} % 目录后如果是奇数页结尾，则插入一个无页码空白页
    \clearpage
    \pagestyle{empty}
@@ -416,19 +367,15 @@
   \fi
   \clearpage
   \pagenumbering{arabic}
-   % the original plainstyle is revised to add the pagehead to the first page in a chapter 
-   % the default style of the first page is plain. 
-   % \pagestyle{yourstyle} can be used to define the style of other pages,
-   % or keep the same as plain.
-   \let\ps@plain=\ps@revtitlestyle
-  \pagestyle{revtitlestyle} % revised by Quansheng Guan 
-  %\pagestyle{plain} 
+
+  \makeatletter
+  \let\ps@plain=\ps@revtitlestyle
+  \makeatother
+  \pagestyle{revtitlestyle} % here and continue 
   % 开始正文部分
 }
 \renewcommand\backmatter{%
   % there is no label number for reference chapter
- \let\ps@plain=\ps@nolabelchapterstyle
-  \pagestyle{plain} % revised by Quansheng Guan 
 }
 %==========
 \AtBeginDocument{\CJKindent{}%
@@ -437,63 +384,94 @@
     \linespacing{1.682}% 主行距～1.5倍
   }
 \AtEndDocument{}
-%------------------
-\newcommand{\preface}[1]{%
-  \chapter*{#1}
-  \addcontentsline{toc}{chapter}{#1}
-}
 
-\newenvironment{abstractCn}{
+%------------------
+\renewcommand{\maketitle}{% called outside
+  \ifpdfcover
+%%coverpage from pdf file
+        \includepdf[pages=-]{thesis_cover.pdf}%pdf文件路径为主文件tex或lyx的当前目录
+   \else
+%%buildin coverpage
+\begin{titlepage}
+\raggedleft
+\null
+\vskip 4em
+
+\bigskip
+\centerline{\songti\erhao  {\thesissubject} }
+\vskip 4em
+
+\bigskip
+\centerline{\heiti\yihao  {\@title} }
+\vskip 2em
+
+\bigskip
+\centerline{\songti\erhao   {\@author} }
+\bigskip
+\centerline{\songti\erhao   {\@supervisor} }
+
+\vfill
+\centerline{\songti\normalsize{\@institute}}
+\centerline{\songti\normalsize{\@date}}
+\end{titlepage}
+
+\fi
+}
+%%摘要分中英文页，而且有两者排版方式：
+%一种是采用\abstractCN和\abstractEN方式以“摘要”和“Abstract”为页标题
+%另一种采用研究报告的标题为摘要页的标题，这时使用\charpter*{报告中文或英文标题}和\chapterx{摘要或Abstract}
+\newenvironment{abstractCN}{
   \chapter*{摘\quad 要}
   \addcontentsline{toc}{chapter}{摘要} 
 }{}
 
-\newcommand{\keywordsCn}[1]{
+\newenvironment{abstractEN}
+{
+  \chapter*{Abstract}
+  \addcontentsline{toc}{chapter}{Abstract}
+}{}
+
+\newcommand{\keywordsCN}[1]{
   \par
  \vspace{1em}
   \newcommand{\@keywords}{#1}
   {\noindent\abskeycn 关键词：} {\abskeyscn \@keywords} % \noindent去掉缩进 
 }
-  
-\newenvironment{abstractEn}
-{
-  \chapter*{Abstract}
-  \addcontentsline{toc}{chapter}{Abstract}
-}{
-}
-
-\newcommand{\keywordsEn}[1]{
+\newcommand{\keywordsEN}[1]{
   \par
  \vspace{1em}
   {\noindent\abskeyen Keywords:} {\abskeysen #1} % \noindent去掉缩进
 }
-
-\renewcommand{\appendix}[1]{%
-  %\myclearpage % commented by Quansheng Guan
-  % added by Quansheng Guan
-  % \chaptertitle is not available for those chapters without label number.
-  \renewpagestyle{plain}{
-    \sethead[][{\headfont{}\thesissubject}][] % 页眉偶数页，五号字体，居中
-    {}{{\headfont{#1}}}{} % 页眉奇数页，五号字体，居中
-    \setfoot{}{\headfont{}\thepage}{}%页码五号宋体居中
-    \headrule%上横线
-    \setheadrule{1.5pt}%设置横线粗细
-  }
-
-   \renewcommand{\thesection}{{#1}\arabic{section}} 
-   \chapter*{#1}
-   \addcontentsline{toc}{chapter}{#1}
-   \setcounter{section}{0}
-
+%
+\newcommand{\abstractx}[1]
+{
+ \begin{center}
+  #1
+ \par\end{center}
+  \addcontentsline{toc}{chapter}{#1}
 }
 
-%examples:
-%\appendix{附\quad 录}% 
-%\section{随机数的生成}%
-%\appendix{攻读博士学位期间取得的研究成果}
-%\appendix{致\quad 谢}%
+%有些章节名如“致谢”、“附录”，无需章节编号，相当于chapter*，但需要把章节名加入目录，相应的页眉也要改动
+%通过\chapterx和\chapterxname来完成。
+\def \chapterxname#1{\gdef\@chapterxname{#1}}
+\newcommand{\chapterx}[1]
+{
+  \chapterxtrue
+  \chapter*{#1}
+  \chapterxname{\thesissubject}
+  \addcontentsline{toc}{chapter}{#1}
+}
 
-% added by Quansheng Guan
+\renewcommand{\appendix}[1]{%
+  % \chaptertitle is not available for those chapters without label number.
+   \cleardoublepage 
+   \renewcommand{\thesection}{{#1}\arabic{section}} 
+   \chapter*{#1}
+   \chapterxname{\thesection\quad\sectiontitle}
+   \addcontentsline{toc}{chapter}{#1}
+   \setcounter{section}{0}
+}
+
 \renewenvironment{verse}
                {\let\\\@centercr
                 \list{}{\itemsep      \z@

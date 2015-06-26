@@ -1,4 +1,4 @@
-\documentclass[unicode]{scutthesis}
+\documentclass[unicode,pdfcover]{scutthesis}
 
 \usepackage[unicode=false,bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
  breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=true]
@@ -11,19 +11,19 @@
  linkcolor=blue, anchorcolor=black, citecolor=olive, filecolor=magenta, menucolor=red, urlcolor=magenta, pdfstartview=FitH}
  
 \begin{document}
-\includepdf[pages=-]{thesis_cover.pdf}%包含pdf头文件
+\maketitle
 
 \frontmatter
 
-\begin{abstractCn}
+\begin{abstractCN}
 本文用于测试scutthese.cls的使用，主要包括xelatex是否正常可调用，中文字体是否显示之前，pdf标签是否正确显示。
-\end{abstractCn}
-\keywordsCn{\LaTeX{}；排版；论文}
+\end{abstractCN}
+\keywordsCN{\LaTeX{}；排版；论文}
 
-\begin{abstractEn}
+\begin{abstractEN}
 This article tests the usage of scutthese.cls \LaTeX{} typesetting.
-\end{abstractEn}
-\keywordsEn{\LaTeX{};  Typesetting; Paper}
+\end{abstractEN}
+\keywordsEN{\LaTeX{};  Typesetting; Paper}
 
 
 \tableofcontents{}
@@ -52,8 +52,6 @@ Test English section name.
 \bibliographystyle{scutthesis}
 \bibliography{scutthesis}
 
-\pagestyle{appendix_style}
-
 \appendix{附录}
 \section{Ubuntu Linux系统下中文字体的安装}
 \label{sec:ubuntuzhfont}
@@ -80,7 +78,7 @@ sudo apt-get install perl-tk
 到http://tug.org/texlive/acquire-netinstall.html页面下载 install-tl在线安装前端程序.
 
 
-\appendix{攻读博士学位期间取得的研究成果}
+\chapterx{攻读博士学位期间取得的研究成果}
 
 已发表（包括已接受待发表）的论文，以及已投稿、或已成文打算投稿、或拟成文投稿的论文情况（只填写与学位论文内容相关的部分）：
 
@@ -106,7 +104,7 @@ sudo apt-get install perl-tk
 
 
 
-\appendix{致谢}
+\chapterx{致谢}
 
 首先感谢国家，感谢党；再感谢导师对我的指导，最后感谢父母亲对我的期望！
 

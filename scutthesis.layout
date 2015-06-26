@@ -1,10 +1,9 @@
 #% Do not delete the line below; configure depends on this
-#  \DeclareLaTeXClass[scutthesis]{book (SCUT Thesis)}
-# SCUT Thesis textclass definition file. Taken from initial LyX source code
+# \DeclareLaTeXClass[scutthesis]{book (SCUT Thesis)}
 # Author :Alwin Tsui <alwintsui@gmail.com>
 # v.1.0  Jun 20,2010
-# v.1.1  Mar 30,2011,�޸�appendix
-
+# v.1.1  Mar 30,2011
+# v.1.2  Jun 12,2015
 
 Format 11
 Columns                 1
@@ -15,7 +14,7 @@ Provides url		1
 
 # Default textclass options. The user may need to modify this.
 ClassOptions
-	Other                 "unicode"#,doctor"
+	Other                 "unicode"
 End
 
 
@@ -83,65 +82,142 @@ End
 # then define the unumbered sections, based on the numbered ones.
 Input stdstarsections.inc
 
-NoStyle         Chapter*
+#NoStyle         Chapter*
 NoStyle         Subparagraph*
 
 Input stdlayouts.inc
 Input stdlists.inc
-#Input stdtitle.inc
+Input stdtitle.inc
 Input stdstruct.inc
 
-
-Style Abstract
-	LatexType             Environment
-	InTitle               0
-	LatexName             abstractCn
-	Category		FrontMatter
-	ItemSep               0.2
-	ParSep                0.3
-	LabelFont
+Style Institue
+	Margin                Static
+	LatexType             Command
+	Category              FrontMatter
+	InTitle               1
+	LatexName             institute
+	LabelSep              xxx
+	ParSkip               0.4
+	TopSep                1.3
+	BottomSep             0.7
+	ParSep                0.7
+	Align                 Center
+	LabelType             No_Label
+	Font
 	  Size                Large
 	EndFont
 End
- 
-Style Keywords
-	Margin                Dynamic
-	LatexType             Command
+
+Style Supervisor
+ 	CopyStyle	     Author
+        LatexName             supervisor
+End
+
+NoStyle         Abstract
+NoStyle         Keywords
+
+Style AbstractCN
+	Margin                Static
+	LatexType             Environment
+	LatexName             abstractCN
+	Category              FrontMatter
 	InTitle               0
-	Category			FrontMatter
-	LatexName             keywordsCn
-	LabelType             Static
-	LabelSep              M
-	LabelString           "关键字："
+	NextNoIndent          1
+	LeftMargin            MMM
+	RightMargin           MMM
+	ParIndent             MM
+	ItemSep               0.2
+	ParSep                0.3
+	TopSep                0.7
+	BottomSep             0.7
+	Align                 Block
+	LabelType             Centered
+	LabelString           "摘 要"
+	LabelBottomSep        0.5
+	Font
+	  Size                Small
+	EndFont
+	LabelFont
+	  Series              Bold
+	  Size                Large
+	EndFont
+	HTMLLabelFirst        1
+	HTMLForceCSS          1
+	HTMLStyle
+		div.abstract {
+			margin: 4ex;
+		}
+		div.abstract_item {
+			font-size: small;
+			padding-top: 1ex;
+		}
+		div.abstract_label {
+			font-weight: bold;
+		}
+	EndHTMLStyle
 End
 
-
-Style AbstractEn
-        CopyStyle	     Abstract
-        LatexName             abstractEn
+Style AbstractEN
+        CopyStyle	     AbstractCN
+        LatexName             abstractEN
         LabelString           "Abstract"
-		LabelFont
-          Size                Normal
-          Shape               Italic
-        EndFont
-
-End
-Style KeywordsEn
-	CopyStyle	     Keywords               
-	Latexname             keywordsEn
-	LabelString           "Keywords:"
 End
 
-Style Preface
-	CopyStyle	      Chapter
-	LabelString	      "Preface"
-	LatexName		preface
-	Category		FrontMatter
+Style KeywordsCN
+	Margin		First_Dynamic
+	LatexType	Command
+	LatexName	keywordsCN
+	Category	FrontMatter
+	InTitle               0
+	NextNoIndent	0
+	ParIndent	MM
+	LabelSep	xx
+	ItemSep		0
+	TopSep		0.7
+	BottomSep	0.7
+	ParSep		0
+	Align		Block
+	AlignPossible	Block, Left
+	LabelType	Static
+	LabelString	"关键词："
+	LabelFont
+	  Series	Bold
+	EndFont
+End
+
+Style KeywordsEN
+        CopyStyle	     KeywordsCN
+        LatexName             keywordsEN
+        LabelString           "Keywords:"
+End
+
+
+Style Chapterx
+        CopyStyle	     Chapter*
+        LatexName             chapterx
+End
+
+Style Abstractx
+	Margin                Static
+	LatexType             Command
+	Category              Unnumbered
+	InTitle               1
+	LatexName             abstractx
+	LabelSep              xxx
+	ParSkip               0.4
+	TopSep                1.3
+	BottomSep             0.7
+	ParSep                0.7
+	Align                 Center
+	LabelType             No_Label
+	Font
+	  Size                Large
+	EndFont
 End
 
 Style Appendix
-	CopyStyle	      Chapter
-	LabelString	      "Appendix"
+	CopyStyle	      Chapter*
+#	LabelString	      "Appendix"
 	LatexName		appendix
 	Category		BackMatter
 End

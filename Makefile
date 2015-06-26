@@ -1,4 +1,4 @@
-TAR_NAME:=scutthesis-1.5
+TAR_NAME:=scutthesis-1.6
 NAME:=scutthesis
 SM_NAME:=sample_test
 all: tar
@@ -29,6 +29,6 @@ pdf:
 	evince $(NAME).pdf
 
 test_pdf:
-	 xelatex -interaction=nonstopmode test/sample_one.tex 
+	 xelatex -interaction=nonstopmode sample_test.tex 
 clean:
 	rm -rf *.aux *.idx *.log *.bbl *.blg *.out *.toc *.lot *.lof

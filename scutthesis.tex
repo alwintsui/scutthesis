@@ -1,13 +1,12 @@
-%% LyX 2.0.4 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.1.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[unicode]{scutthesis}
 \usepackage{fontspec}
-\usepackage{listings}
 \usepackage{color}
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{graphicx}
-\usepackage[
+\usepackage[unicode=true,
  bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
  breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=true]
  {hyperref}
@@ -28,16 +27,34 @@
 
 \makeatother
 
+\usepackage{listings}
 \usepackage{xunicode}
-\begin{document}
-\includepdf[pages=-]{/home/shun/workspace/scutthesis/thesis_cover.pdf}%pdf修改为你的绝对路径名
-\frontmatter
-\begin{abstractCn}
-论文排版对科技工作者来说一直是一个公认的繁琐事情。使用\LaTeX{}排版的突出缺点是控制符和文本符同时显现，容易干扰用户文本内容输入。鉴于此，本文提出了一种新颖的\LyX{}+Xe\LaTeX{}+\LaTeX{}组合的论文排版编辑方式。该排版方式取\LyX{}之长弥补\LaTeX{}的不足点，使得同时具有MS\ Word和\TeX{}排版两方面优势，同时基于Uincode的Xe\LaTeX{}引擎不仅使得文字兼容性增强，而且使用更方便。本文还以设计一套符合华南理工大学博士论文规范的\LaTeX{}/\LyX{}模板为例，验证了该组合方式的可行性。
-\end{abstractCn}
+\renewcommand{\lstlistingname}{列表}
 
-\keywordsCn{\LaTeX{}；\LyX{}；排版；论文}
-\begin{abstractEn}
+\begin{document}
+
+\title{Latex 与 Lyx 排版研究}
+
+
+\author{徐川页}
+
+
+\supervisor{指导教师：高德纳\ 教授}
+
+
+\institute{华南理工大学}
+
+
+\date{2010年4月13日}
+
+\maketitle
+\frontmatter
+\begin{abstractCN}
+论文排版对科技工作者来说一直是一个公认的繁琐事情。使用\LaTeX{}排版的突出缺点是控制符和文本符同时显现，容易干扰用户文本内容输入。鉴于此，本文提出了一种新颖的\LyX{}+Xe\LaTeX{}+\LaTeX{}组合的论文排版编辑方式。该排版方式取\LyX{}之长弥补\LaTeX{}的不足点，使得同时具有MS\ Word和\TeX{}排版两方面优势，同时基于Uincode的Xe\LaTeX{}引擎不仅使得文字兼容性增强，而且使用更方便。本文还以设计一套符合华南理工大学博士论文规范的\LaTeX{}/\LyX{}模板为例，验证了该组合方式的可行性。
+\end{abstractCN}
+
+\keywordsCN{\LaTeX{}；\LyX{}；排版；论文}
+\begin{abstractEN}
 Typesetting is a long-standing notorious troublesome for the scientific
 researchers. The noticeable drawback in \LaTeX{} typesetting is that
 control characters and text characters appear in the same time, likely
@@ -49,9 +66,9 @@ based on Uincode, not only improves compatibility but also makes it
 more convenient to be used. This work also presents a set of \LaTeX{}/\LyX{}
 templates of South China University of Technology doctoral thesis,
 in order to verify the feasibility of the combination.
-\end{abstractEn}
+\end{abstractEN}
 
-\keywordsEn{\LaTeX{}; \LyX{}; Typesetting; Paper}
+\keywordsEN{\LaTeX{}; \LyX{}; Typesetting; Paper}
 
 \tableofcontents{}
 
@@ -62,7 +79,7 @@ in order to verify the feasibility of the combination.
 
 
 
-\preface{主要符号对照表}
+\chapterx{主要符号对照表}
 
 【本节论文规范为可选，如果你的论文没有相关内容那么去除这一节；如果有，则删除这一行注释。】
 
@@ -79,7 +96,7 @@ $\varepsilon_{e}$ - 弹性应变 &  & $k$ - Blozmann常数$\left(J/K\right)$\tab
 
 
 
-\preface{英文缩略词}
+\chapterx{英文缩略词}
 
 【本节论文规范为可选，如果你的论文没有相关内容那么去除这一节；如果有，则删除这一行注释。】
 
@@ -101,7 +118,7 @@ SCUT  & South China University of Technology & 华南理工大学\tabularnewline
 \chapter{绪论}
 
 
-\section{研究目的}
+\section{研究意义}
 
 \TeX{}/\LaTeX{}是一种专业的科技文献排版语言，使用它写文档具有如下优势：
 \begin{enumerate}
@@ -142,7 +159,7 @@ Word排版两者的优势\cite{lamport1994latexa}，内容独立编辑格式的�
 Tex是可扩展的排版语言，通过宏包可以增强指令功能和多样化排版格式。\LaTeX{}就是一个最流行\TeX{}宏库，为了方便起见，本文中常用\LaTeX{}代替\TeX{}名词使用。注意有些宏包突破了基本\TeX{}规范，因此需要特别的引擎来处理。引擎就像编译器，最基本的\TeX{}引擎只可以生成dvi文件，但通过增强型\TeX{}引擎，如PDF\TeX{}和Xe\TeX{}都能编译\TeX{}文件直接生成pdf文件。Xe\TeX{}和Xe\LaTeX{}都是基于Unicode字体的\TeX{}增强型引擎，不同的是一个编译\TeX{}源码，另一个编译\LaTeX{}源码。整个\TeX{}工作体系架构见图\ref{fig:tex_work_framework}。
 
 \begin{figure}
-\centering{}\includegraphics[scale=0.7]{figure/tex_engine}\caption[如果图题太长，在这里写个短标题只在图索引中出现]{\label{fig:tex_work_framework}\protect\TeX{}工作体系框架}
+\centering{}\includegraphics[scale=0.7]{figure/tex_engine}\protect\caption[如果图题太长，在这里写个短标题只在图索引中出现]{\label{fig:tex_work_framework}\protect\TeX{}工作体系框架}
 \end{figure}
 
 
@@ -155,7 +172,7 @@ Tex是可扩展的排版语言，通过宏包可以增强指令功能和多样�
 也可以输入表格如表 \ref{tab:example}。
 
 \begin{table}
-\caption{\label{tab:example}实例表}
+\protect\caption{\label{tab:example}实例表}
 
 
 \centering{}%
@@ -190,7 +207,7 @@ case & Method1 & Method2 & Method3 & 产出\tabularnewline
 \LyX{}的体系包含三大组成部分：
 \begin{enumerate}
 \item \TeX{}/\LaTeX{} 宏：\LyX{}会收集系统上已经存在的\TeX{}/\LaTeX{}宏，这些宏在\LyX{}的layout文件中调用。
-\item 文档class\ and\ Layout：Layout主要规定\LyX{}用户输入界面文档显示的格式，这些格式没有必要和\LaTeX{}的生成格式但推荐一致。Linux系统下，在\textasciitilde{}/.lyx/layouts目录下可以定义自己的layout文件，可以通过菜单栏Document-\textgreater{}settings-\textgreater{}document\ class来选择。当前最新版可以在Document-\textgreater{}settings-\textgreater{}document\ class中使用“local\ layout”选择使用本地目录下的lyx\ layout文件，如“scutthesis.layout”。\LyX{}菜单上的help-\textgreater{}customization\ layout的作用有两个：调用用户指定的tex\ class和设置\LyX{}文本界面段落格式。 
+\item 文档class\ and\ Layout：Layout主要规定\LyX{}用户输入界面文档显示的格式，这些格式没有必要和\LaTeX{}的生成格式但推荐一致。Linux系统下，在\textasciitilde{}/.lyx/layouts目录下可以定义自己的layout文件，可以通过菜单栏Document->settings->document\ class来选择。当前最新版可以在Document->settings->document\ class中使用“local\ layout”选择使用本地目录下的lyx\ layout文件，如“scutthesis.layout”。\LyX{}菜单上的help->customization\ layout的作用有两个：调用用户指定的tex\ class和设置\LyX{}文本界面段落格式。 
 \item Template：其实就是一个正常的\LyX{}文件，作为一个模板，保存了一些相应的基本设置，这样你下次在需要此类格式的文档时，只要在该模板的基础上次新建即可。
 \end{enumerate}
 另外，如果你的要求不太高，完全可以把\LyX{}当成一个\LaTeX{}的草稿本，因为\LyX{}可以方便导出\LaTeX{}格式文档。
@@ -267,21 +284,19 @@ Texmaker是一个自由跨平台Latex编辑器\cite{Texmaker}，常见于Linux�
 
 我们可以设置Texmaker调用Xe\LaTeX{}引擎代替普通的\LaTeX{}引擎，编译扩展后的\TeX{}文档。设置方法：
 
-打开文件 \%appdata\%\textbackslash{}xm1\textbackslash{}texmaker.ini\char`\"{}
+打开文件 \%appdata\%\textbackslash{}xm1\textbackslash{}texmaker.ini\textquotedbl{}
 修改如下：
 
-User\textbackslash{}ToolName1=Xe\LaTeX{}
+\begin{lstlisting}
+User\ToolName1=XeLaTeX
+User\Tool1="xelatex -interaction=nonstopmode %.tex"
+\end{lstlisting}
 
-User\textbackslash{}Tool1=\char`\"{}xelatex -interaction=nonstopmode
-\%.tex\char`\"{}
 
 
 \subsection{Lyx中调用Xe\protect\LaTeX{}\label{sub:LyX_XeLaTeX}}
 
-现行\LyX{}版本1.6.7默认没有增加Xe\LaTeX{}编译按钮（Lyx2.0已经加入），必须自行在toolbar上加入一些功能调用按钮，如view
-PDF(xelatex)等菜单命令。
-
-如何在\LyX{}下调用xetex编译\LaTeX{}文档，参加\LyX{}官方wiki\cite{xetex_lyx}。
+Lyx2.0以后的版本默认支持Xe\LaTeX{}编译，而早期\LyX{}版本如1.6.7必须自行在toolbar上加入一些功能调用按钮，如view\ PDF(xelatex)等菜单命令。如何在\LyX{}下调用xetex编译\LaTeX{}文档，参加\LyX{}官方wiki\cite{xetex_lyx}。
 
 
 \chapter{博士论文模板设计}
@@ -298,9 +313,9 @@ PDF(xelatex)等菜单命令。
 
 本文模板设计(scutthesis)的主要思想为\emph{简洁而易于维护}。具体如下：
 \begin{enumerate}
-\item 中英文封面及原创说明等\emph{摘要前的内容}以pdf形式(thesis\_cover.pdf)合并到\LaTeX{}源码中一起编译，直接包含进来避免了一些繁琐的细节问题，减轻用户的使用困难。该thesis\_cover.pdf可以从填好的微软.doc文件转换而来%
+\item 论文封面是通过maketile生成，有内置简单版和外部pdf导入版两种，在调用scutthesis.cls时加入pdfcover选项将使用pdf导入封面，它会将本地目录下名为thesis\_cover.pdf的文件作为封面页，该pdf文件一般包含中英文封面及原创说明等\emph{摘要前的内容}，这些pdf页会被合并到\LaTeX{}源码中一起编译，直接包含外部pdf作为封面避免了一些繁琐的细节问题，减轻用户的使用困难。该thesis\_cover.pdf可以从填好的微软.doc文件转换而来%
 \footnote{Linux下用openoffice，window下用MC word将.doc转为.pdf文件%
-}，word页面可以到“研究生院主页网站-\textgreater{}学位办公室-\textgreater{}下载区”下载最新“研究生学位论文撰写规范”文档中找到。使用这种方式注意力将集中到论文的正文部分，这点不同于现存的各高校\LaTeX{}模板。
+}，word页面可以到“研究生院主页网站->学位办公室->下载区”下载最新“研究生学位论文撰写规范”文档中找到。使用这种方式注意力将集中到论文的正文部分，这点不同于现存的各高校\LaTeX{}模板。如果在调用scutthesis模板类之前没有使用pdfcover选项，将使用内置简单封面（适用于草稿模式）。
 \item 由于博士论文是中英文混合排版，也不排除用其他语言文字（如留学生的使用），因此要支持各种语言字体是一种要求，这样最优的选择是采用Unicode来编码，而不仅是CJK。据于此，本模板设计将采用基于Unicode和Opentype字体的Xe\LaTeX{}来完成设计。xeCJK是宏包，Xe\TeX{}是引擎，两者虽然都支持中文编辑，但XeTex是内核上实现，比一些辅助的中文包之类的东西（CCT或CJK之类）更可靠，因此Xe\TeX{}将更有发展潜力。使用\LyX{}+Xetex最大好处是支持各种语言排版，只需一点额外的切换配置可以支持中文。还有，不采用CTex宏来设计框架的原因是避免用户和维护人员去学习复杂的CTex的定义，较早的CASThesis.cls就是基于CTex设计而来，总体感觉繁琐难读，不宜维护。
 \end{enumerate}
 
@@ -364,11 +379,11 @@ scutthesis的\LaTeX{}宏包部分参考过的模板：
 \includegraphics[scale=0.6]{figure/scutthesis}
 \par\end{centering}
 
-\caption{\label{fig:scutthesis_framework}流程框架、模板使用和文件关系}
+\protect\caption{\label{fig:scutthesis_framework}流程框架、模板使用和文件关系}
 \end{figure}
 
 
-本设计的源码下载地址为：http://code.google.com/p/scutthesis/ 。
+本设计的源码下载地址为：https://github.com/alwintsui/scutthesis 。
 
 
 \chapter{博士论文模板的使用}
@@ -418,13 +433,22 @@ xelatex --interaction=nonstopmode scutthesis
 直接使用Latex编写论文，可以采用如下结构布局
 
 \begin{lstlisting}
-\documentclass[unicode]{scutthesis} %draftmode
+\documentclass[unicode,pdfcover]{scutthesis}
+\usepackage[unicode=false,bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=true]
+ {hyperref}
+
 \hypersetup{
  pdftitle={SCUT Thesis title},
  pdfauthor = {your name}
+ pdfkeywords={keyword1, keyword2},  
+ pdfstartview=FitH,
+ unicode=false,
+ linkcolor=blue,anchorcolor=black,citecolor=olive,filecolor=magenta,menucolor=red,urlcolor=magenta,
 }
 \begin{document}
-\includepdf[pages=-]{thesis_cover.pdf} % covered from word doc
+
+\maketitle % include thesis_cover.pdf covered from word doc
 %%%%%%%%%%%%%%%%%%%%
 \frontmatter %Roman numerals for page numbering
 \include{body/abstract} % Chinese/English abstract
@@ -450,27 +474,46 @@ xelatex --interaction=nonstopmode scutthesis
 \end{lstlisting}
 scutthesis需要使用unicode 编码，
 
-\textbackslash{}documentclass{[}unicode{]}\{scutthesis\}
+\begin{lstlisting}
+\documentclass[unicode]{scutthesis}
+\end{lstlisting}
+
 
 硕/博论文选择：默认是博士论文，使用以下命令定义硕士论文类型，
 
-\textbackslash{}documentclass{[}unicode,master{]}\{scutthesis\} 
+\begin{lstlisting}
+\documentclass[unicode,master]{scutthesis} 
+\end{lstlisting}
 
-初稿模式：在初稿模式，latex 的编译速度较快，还可以给文档加上水印及日期，可 选，
 
-\textbackslash{}documentclass{[}unicode,master,draftmode{]}\{scutthesis\} 
+pdfcover选项将在maketitle中调用thesis\_cover.pdf，如果没有pdfcover将需要在\textbackslash{}begin\{document\}之后设置调用\textbackslash{}title、\textbackslash{}author、\textbackslash{}supervisor、\textbackslash{}institute和\textbackslash{}date指令设置基本信息，例如：
+
+\begin{lstlisting}
+\title{Latex 与 Lyx 排版研究}
+\author{徐顺}
+\supervisor{指导教师：高德纳 教授}
+\institute{华南理工大学}
+\date{2010年4月13日}
+\end{lstlisting}
+
+
+使用内置简单封面可加快latex 的编译速度，适合草稿模式。
+
+\begin{lstlisting}
+\documentclass[unicode,pdfcover]{scutthesis} 
+\end{lstlisting}
+
 
 还可以设置pdf 文件属性，打上你自己的烙印
 
-\textbackslash{}hypersetup\{ 
-
+\begin{lstlisting}
+\hypersetup{ 
 unicode=true,
+pdftitle={论文的题目}. % 题目 
+pdfauthor = {你的名字},% 作者
+}
+\end{lstlisting}
 
-pdftitle=\{论文的题目\}. \% 题目 
-
-pdfauthor = \{你的名字\},\% 作者
-
-\}
 
 如果pdf目录书签中的中文乱码，将unicode选项设置false试试。
 
@@ -502,7 +545,7 @@ pdfauthor = \{你的名字\},\% 作者
 
 添加多个附录章节，使用\textbackslash{}section和\textbackslash{}subsection等等。
 
-一般是自动首行空两格，但碰到列表项后的段落，不会首行自动空两格，latex文档中可用\textbackslash{}qquad\{\}，而在lyx文档中使用菜单插入：insert-\textgreater{}foramtting-\textgreater{}Horizontal
+一般是自动首行空两格，但碰到列表项后的段落，不会首行自动空两格，latex文档中可用\textbackslash{}qquad\{\}，而在lyx文档中使用菜单插入：insert->foramtting->Horizontal
 space选择double Quad（2em）。
 
 
@@ -510,17 +553,15 @@ space选择double Quad（2em）。
 
 Latex一般插图格式为
 
-\textbackslash{}begin\{figure\}{[}H{]} 
+\begin{lstlisting}[language=TeX]
+\begin{figure}[H] 
+\centering
+\includegraphics[scale=0.4]{figure/scutlogo.eps}
+\FigureBicaption{华工}{SCUT} 
+\label{fig:single} 
+\end{figure}
+\end{lstlisting}
 
-\textbackslash{}centering
-
-\textbackslash{}includegraphics{[}scale=0.4{]}\{figure/scutlogo.eps\}
-
-\textbackslash{}FigureBicaption\{华工\}\{SCUT\} 
-
-\textbackslash{}label\{fig:single\} 
-
-\textbackslash{}end\{figure\}
 
 其中{[}H{]} 参数强制固定浮动图形的位置； scale 参数可以调整图片大小； \textbackslash{}FigureBicaption\{中文标题\}\{英文标题\}
 加入图片标题；\textbackslash{}label 命令用来引用图片。
@@ -535,7 +576,7 @@ http://blog.sina.com.cn/s/blog\_5e16f1770100n206.html
 基本表格
 
 \begin{figure}
-\caption[这个标题会出现在索引中]{如果表格的标题很长，那么在表格索引中就会很不美观，所以要像chapter那样在前面用中括号写一个简短的标题。}
+\protect\caption[这个标题会出现在索引中]{如果表格的标题很长，那么在表格索引中就会很不美观，所以要像chapter那样在前面用中括号写一个简短的标题。}
 
 
 \centering{}%
@@ -584,6 +625,7 @@ x=(n-2)+d
 把证明内容放到\textbackslash{}begin\{proof\} 和\textbackslash{}end\{proof\} 
 \end{proof}
 
+
 \subsection{参考文献}
 
 根据条目的类型，如@article，@procceedings，@book，BibTex会自动分别在文献题目后面加上{[}J{]},{[}C{]}和{[}M{]}等标识。也可以自己设定TypeofLit，给定文献类型，如引用网页的代码
@@ -625,28 +667,30 @@ language = {},
 
 \LyX{}只是提供一种编辑框架，此模板提供scutthesis.layout让\LyX{}识别基于scutthesis类型的文档，真正文档的编译需要有Xelatex工具来完成。Ubuntu上的基本配置：
 \begin{enumerate}
-\item 把scutthesis项目发行包里面的 scutthesis.layout放置到路径 \textasciitilde{}/.lyx/layouts/scutthesis.layout；
-\item 打开\LyX{}软件，点击运行：tools-\textgreater{}reconfigure，之后在\LyX{}中的 document-\textgreater{}settings-\textgreater{}document
-class下拉列表中能够找到book(SCUT Thesis)项，表示已经配置成功。
+\item 把scutthesis项目发行包里面的 scutthesis.layout放置到主lyx文件的同目录或者路径 \textasciitilde{}/.lyx/layouts/scutthesis.layout；
+\item 打开\LyX{}软件，新建主lyx文件（用于书写论文内容），点击运行：tools->reconfigure，之后在\LyX{}中的document->settings->document\ class下拉列表中能够找到book(SCUT\ Thesis)项，或者选择local\ layout打开文件选择scutthesis.layout，表示已经配置成功。
 \item 如果是lyx2.0以下版本，其不支持基于文档的字体设置，那么需要注释掉\textasciitilde{}/.lyx/lyxrc.defaults文件中默认的西文T1编码:\#\textbackslash{}font\_encoding
-\char`\"{}T1\char`\"{}，注意每次reconfigure后\textasciitilde{}/.lyx/lyxrc.defaults内会还原。
+\textquotedbl{}T1\textquotedbl{}，注意每次reconfigure后\textasciitilde{}/.lyx/lyxrc.defaults内会还原。
 \end{enumerate}
 对于其他系统上的配置，可参照以上路径，做相应的路径修改即可完成。
 
 调用Lyx模板写论文比直接用Latex简单直观多了，大部分格式可以参考scutthesis.lyx这个样本文件。
 
-Document-\textgreater{}settings...-\textgreater{}PDF Properties中按照个人的情况修改Header
-Infomation的字段。
+Document->settings...->PDF Properties中按照个人的情况修改Header Infomation的字段。
 
 Aditional options的值通常情况下各链接的颜色可以不一致，如：
 
-unicode=false,linkcolor=blue, anchorcolor=black, citecolor=olive,
-filecolor=magenta, menucolor=red, urlcolor=magenta, pdfstartview=FitH
+\begin{lstlisting}
+unicode=false,linkcolor=blue, anchorcolor=black, citecolor=olive, filecolor=magenta, menucolor=red, urlcolor=magenta, pdfstartview=FitH
+\end{lstlisting}
+
 
 最后论文到图书馆提交时，要求链接颜色都设定为黑色，其值改如下另外生成一份文档：
 
-unicode=false,linkcolor=black, anchorcolor=black, citecolor=black,
-filecolor=black, menucolor=black, urlcolor=black, pdfstartview=FitH
+\begin{lstlisting}
+unicode=false,linkcolor=black, anchorcolor=black, citecolor=black, filecolor=black, menucolor=black, urlcolor=black, pdfstartview=FitH
+\end{lstlisting}
+
 
 注意在Windows系统下，pdf文件thesis\_cover.pdf的路径名用\textbackslash{}分隔符而不是/分隔符。
 
@@ -664,7 +708,7 @@ Lyx2.0做了一些有利于scutthesis（XeTex）格式的\href{http://wiki.lyx.o
 \end{enumerate}
 强烈推荐使用2.0以上版本，scutthesis完全可以不修改cls文件从Lyx1.6迁移到Lyx2.0，而且Lyx2.0中的配置使用几乎不需要特殊的配置。例如增加了\textbackslash{}default\_output\_format关键字，将菜单中view和update的命令改为和文档自动关联，我们可以把XeTex（也就是XeLaTex）作为scutthesis的一种默认输出格式。如果scutthesis的相关字体已经安装了，直接在lyx使用快捷键ctrl+R就可以生成论文pdf文件了。
 
-Lyx2.0上的使用关键在于其设置，选择Document-\textgreater{}settings...参考设置如下（\emph{以下设置都包含在scutthesis.lyx中，用户不需再次设置}）：
+Lyx2.0上的使用关键在于其设置，选择Document->settings...参考设置如下（\emph{以下设置都包含在scutthesis.lyx中，用户不需再次设置}）：
 
 Document class: book(SCUT Thesis) (对于scutthesis.lyx)
 
@@ -680,7 +724,7 @@ Page Margins/Default Margins: checked
 
 Language:Chinese(simplified); 
 
-Quote Style:\char`\"{}text\char`\"{} 
+Quote Style:\textquotedbl{}text\textquotedbl{} 
 
 Encoding/other:Unicode(XeTex)(utf8)
 
@@ -702,7 +746,7 @@ OutPut/Default Output Format:PDF(XeTex)
 
 File Formats: Latex(Xe\TeX{})后缀为 .tex和Pdf(XeTex)后缀为 .pdf
 
-Converters: Latex(Xe\TeX{})-\textgreater{}Pdf(XeTex): 设置为
+Converters: Latex(Xe\TeX{})->Pdf(XeTex): 设置为
 
 xelatex \$\$i 
 
@@ -717,13 +761,9 @@ latex=xelatex
 
 总体来说，\LyX{}、Xe\LaTeX{}和\LaTeX{}组合实现了一种优势互补，使得科技文献的编辑排版工作量大为下降。
 
-\backmatter
-
 \bibliographystyle{scutthesis}
 \bibliography{scutthesis}
 
-
-\pagestyle{appendix_style}
 
 
 \appendix{附录}
@@ -757,15 +797,14 @@ fc-list :lang=zh查看是否有新安安装字体。
 
 从windows系统中拷贝如下字体到 \textasciitilde{}/.fonts/winfonts 目录中。
 
-:\textasciitilde{}/.fonts/winfonts\$ls
-
+\begin{lstlisting}[language=bash]
+:~/.fonts/winfonts$ls
 arialbd.ttf ARIALNB.TTF ariblk.ttf cour.ttf SIMLI.TTF timesbi.ttf
-
 arialbi.ttf ARIALNI.TTF courbd.ttf simfang.ttf simsun.ttc timesi.ttf 
-
 ariali.ttf ARIALN.TTF courbi.ttf simhei.ttf SIMYOU.TTF times.ttf
-
 ARIALNBI.TTF arial.ttf couri.ttf simkai.ttf timesbd.ttf 
+\end{lstlisting}
+
 
 这样以后你的系统就安装好ctex需要的winfonts。（除此之外，上面的字体中还包含了Times New Roman、Arial、Courier
 New英文字体） 
@@ -797,12 +836,17 @@ New英文字体）
 
 Texlive是TEX的一个集成发行包，相关介绍见http://tug.org/texlive/doc/texlive-zh-cn/。其主要过程包括：预设置、下载安装和测试调用。建议用GUI方式安装：
 
+\begin{lstlisting}[language=bash]
 sudo apt-get install perl-tk 
+\end{lstlisting}
+
 
 到http://tug.org/texlive/acquire-netinstall.html页面下载 install-tl在线安装前端程序，解压后执行
 
-sudo ./install-tl -repository http://ftp.ctex.org/mirrors/CTAN/systems/texlive/tlnet/
--gui 
+\begin{lstlisting}[basicstyle={\footnotesize\ttfamily},language=bash]
+sudo ./install-tl -repository http://ftp.ctex.org/mirrors/CTAN/systems/texlive/tlnet/ -gui
+\end{lstlisting}
+ 
 
 ps：texlive发布的版本以年号来标识，如texlive2011,texlive2009,安装方法基本一致。我们以texlive2011为例说明基本安装过程。
 
@@ -811,7 +855,7 @@ instll-tl以gui安装是根据repository的信息得到当前发布版，如图\
 \begin{figure}
 \includegraphics[scale=0.5]{figure/texlive_gui_main}
 
-\caption{\label{fig:texlive_gui_main}Texlive的GUI安装的主界面，推荐选择创建系统的symlinks}
+\protect\caption{\label{fig:texlive_gui_main}Texlive的GUI安装的主界面，推荐选择创建系统的symlinks}
 
 
 \end{figure}
@@ -822,7 +866,7 @@ instll-tl以gui安装是根据repository的信息得到当前发布版，如图\
 \begin{figure}
 \includegraphics[scale=0.5]{figure/texlive_gui_lang}
 
-\caption{\label{fig:texlive_gui_lang}Texlive GUI安装的语言支持选择界面，对于普通中文用户推荐选择中文和英文支持}
+\protect\caption{\label{fig:texlive_gui_lang}Texlive GUI安装的语言支持选择界面，对于普通中文用户推荐选择中文和英文支持}
 
 
 \end{figure}
@@ -830,19 +874,16 @@ instll-tl以gui安装是根据repository的信息得到当前发布版，如图\
 
 Linux默认安装路径为/usr/local/texlive/2011和\textasciitilde{}/.texlive2011，新安装时将这两个目录删除。安装完成后查看log文件/usr/local/texlive/2011/install-tl.log，其中可找到一些路径信息：
 
-TEXDIR: \char`\"{}/usr/local/texlive/2011\char`\"{}
+\begin{lstlisting}
+TEXDIR: "/usr/local/texlive/2011"
+TEXMFCONFIG: "~/.texlive2011/texmf-config"
+TEXMFHOME: "~/texmf" 
+TEXMFLOCAL: "/usr/local/texlive/texmf-local" 
+TEXMFSYSCONFIG: "/usr/local/texlive/2011/texmf-config" 
+TEXMFSYSVAR: "/usr/local/texlive/2011/texmf-var" 
+TEXMFVAR: "~/.texlive2011/texmf-var"
+\end{lstlisting}
 
-TEXMFCONFIG: \char`\"{}\textasciitilde{}/.texlive2011/texmf-config\char`\"{}
-
-TEXMFHOME: \char`\"{}\textasciitilde{}/texmf\char`\"{} 
-
-TEXMFLOCAL: \char`\"{}/usr/local/texlive/texmf-local\char`\"{} 
-
-TEXMFSYSCONFIG: \char`\"{}/usr/local/texlive/2011/texmf-config\char`\"{} 
-
-TEXMFSYSVAR: \char`\"{}/usr/local/texlive/2011/texmf-var\char`\"{} 
-
-TEXMFVAR: \char`\"{}\textasciitilde{}/.texlive2011/texmf-var\char`\"{}
 
 新安装的Texlive可能编译scutthesis时可能会提示“! \LaTeX{} Error: File `slashbox.sty'
 not found.”，这是由于slashbox.sty由于版权问题没有包含在Texlive中，但用户自己自行安装。
@@ -856,21 +897,20 @@ Texlive2011中以及包括了\LaTeX{},Xe\LaTeX{}等基本编译引擎。Ctex的�
 
 可以查看到ctexart.cls 文件。
 
-\%test.tex
-
-\textbackslash{}documentclass\{ctexart\}
-
-\textbackslash{}begin\{document\}
-
+\begin{lstlisting}[language=TeX]
+%test.tex
+\documentclass{ctexart}
+\begin{document}
 中文宏包测试
+\end{document} 
+\end{lstlisting}
 
-\textbackslash{}end\{document\} 
 
 对于texlive的其他版本的安装也是类似，对Ubuntu用户使用apt-get可以安装texlive（甚至lyx），但texlive比分成了许多小包如texlive，texlive-base和texlive-lang-latin等等，对于初学者可能不知道它们之间的依赖，而应该安装哪些相关包？因此推荐也使用install-tl
 gui安装方式（lyx也推荐使用编译源代码方式安装）。
 
 
-\appendix{攻读博士学位期间取得的研究成果}
+\chapterx{攻读博士学位期间取得的研究成果}
 
 已发表（包括已接受待发表）的论文，以及已投稿、或已成文打算投稿、或拟成文投稿的论文情况（只填写与学位论文内容相关的部分）：
 
@@ -896,11 +936,9 @@ gui安装方式（lyx也推荐使用编译源代码方式安装）。
 
 
 
-\appendix{致谢}
+\chapterx{致谢}
 
-首先感谢国家，感谢党；感谢导师对我的指导，感谢父母亲对我的期望！
-
-同时感谢华工校内外多位同学对该模板的测试和提供的改进。
+感谢导师对我的悉心指导，同时感谢华工校内外多位同学对该模板的测试和提供的改进。
 
 \begin{minipage}[t]{0.8\columnwidth}%
 \begin{flushright}
