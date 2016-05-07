@@ -768,7 +768,7 @@ reference "eq:cx1"
 式。
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial\, P(S_{j},\, t)}{\partial t}=\sum_{i}P(S_{i},\, t)W(S_{i}\rightarrow S_{j})-\sum_{i}P(S_{j},\, t)W(S_{j}\rightarrow S_{i})\label{eq:cx1}
+\frac{\partial\,P(S_{j},\,t)}{\partial t}=\sum_{i}P(S_{i},\,t)W(S_{i}\rightarrow S_{j})-\sum_{i}P(S_{j},\,t)W(S_{j}\rightarrow S_{i})\label{eq:cx1}
 \end{equation}
 
 \end_inset
@@ -3594,12 +3594,6 @@ l-tl gui安装方式（lyx也推荐使用编译源代码方式安装）。
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="7">
 <features rotate="0" islongtable="true" longtabularalignment="center">
@@ -4066,11 +4060,6 @@ SCI
 </cell>
 </row>
 </lyxtabular>
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 

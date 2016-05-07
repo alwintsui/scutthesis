@@ -1,4 +1,4 @@
-TAR_NAME:=scutthesis-1.6
+TAR_NAME:=scutthesis-1.7
 NAME:=scutthesis
 SM_NAME:=sample_test
 all: tar
@@ -31,4 +31,4 @@ pdf:
 test_pdf:
 	 xelatex -interaction=nonstopmode sample_test.tex 
 clean:
-	rm -rf *.aux *.idx *.log *.bbl *.blg *.out *.toc *.lot *.lof
+	rm -rf *.aux *.idx *.log *.bbl *.blg *.out *.toc *.lot *.lof *.synctex.gz

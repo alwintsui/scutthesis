@@ -64,7 +64,9 @@
 
 %% 字体设置
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage[BoldFont, SlantFont, CJKnumber]{xeCJK} % xeCJK package
+\RequirePackage[BoldFont, SlantFont, CJKnumber]{xeCJK} % xeCJK package, CJKnumber deprecated.
+%\@ifpackagelater {xeCJK}  { 2008/12/29 } 
+\RequirePackage{CJKnumb} % used in recent TEX distribution
 %\punctstyle{kaiming}
 \setmainfont[Mapping=tex-text]{Times New Roman}%\rmfamily 使用的字体,默认英文和数字的字体。
 \XeTeXlinebreaklocale "zh" %采用中文断行方式
@@ -196,7 +198,7 @@
 %% 表格 
 \RequirePackage{array} % 扩展了 array 和 tabular 环境功能
 \RequirePackage{booktabs} % 增加对三线表格的支持 % \toprule，\midrule，\bottomrule
-\usepackage{longtable} % 长表格支持，截断跨页
+\RequirePackage{longtable} % 长表格支持，截断跨页
 \RequirePackage{ctable, threeparttable} % 支持表格注释,复杂表格，一般用不上
 %\RequirePackage{tabularx}
 \captionsetup[table]{position=top}
@@ -327,8 +329,8 @@
 %\sethead[ even-left ][ even-center ][ even-right ]    { odd-left }{ odd-center }{ odd-right }
 \newpagestyle{revtitlestyle}{
  \ifchapterx 
-  \sethead[][{\headfont{}\@chapterxname}][] % 页眉奇偶数页
-  {}{{\headfont{}\thesissubject}}{} % 页眉奇数页
+  \sethead[][{\headfont{}\thesissubject}][] % 页眉偶数页
+  {}{{\headfont{}\@chapterxname}}{} % 页眉奇数页
  \else
   \sethead[][{\headfont{}\thesissubject}][] % 页眉偶数页，五号字体，居中
   {}{{\headfont{}\chaptertitlename\quad\chaptertitle}}{} % 页眉奇数页，五号字体，居中
@@ -458,7 +460,7 @@
 {
   \chapterxtrue
   \chapter*{#1}
-  \chapterxname{\thesissubject}
+  \chapterxname{#1}
   \addcontentsline{toc}{chapter}{#1}
 }
 
