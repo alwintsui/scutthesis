@@ -1,0 +1,95 @@
+\begin{thebibliography}{16}
+\setlength{\itemsep}{1ex}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Knuth et al.(1986)]{knuth1986thetexbook}
+Knuth D~E, Bibby D, Makai I.
+\newblock The texbook[M].
+\newblock Massachusetts: {Addison-Wesley} Reading, 1986.
+
+\bibitem[Goossens et al.(1994)]{goossens1994thelatex}
+Goossens M, Mittelbach F, Samarin A.
+\newblock The {LaTEX} Companion[M].
+\newblock Massachusetts: {Addison-Wesley,} Reading, 1994.
+
+\bibitem[Lamport {\em et~al.}(1994)]{lamport1994latexa}
+Lamport L, et al.
+\newblock {LaTEX:} a document preparation system[M].
+\newblock Massachusetts: {Addison-Wesley,} Reading, 1994.
+
+\bibitem[Laakso(2011)]{TUG}
+Laakso R.
+\newblock TeX Users Group[EB/OL].
+\newblock \url{http://www.tug.org/}, 2011.
+
+\bibitem[Oetiker(2010)]{lshort}
+Oetiker T.
+\newblock The Not So Short Introduction to LATEX2[EB/OL].
+\newblock \url{http://www.ctan.org/tex-archive/info/lshort/english/lshort.pdf},
+  2010.
+
+\bibitem[Team(2005)]{latex2efontsel}
+Team L~P.
+\newblock LATEX2e font selection[EB/OL].
+\newblock \url{http://www.ctan.org/tex-archive/macros/latex/doc/fntguide.pdf},
+  2005.
+
+\bibitem[Brachet(2011)]{Texmaker}
+Brachet P.
+\newblock Free cross-platform LaTeX editor[EB/OL].
+\newblock \url{http://www.xm1math.net/texmaker/}, 2011.
+
+\bibitem[lyx.org(2011)]{xetex_lyx}
+lyx.org.
+\newblock How to use LyX with XeTeX[EB/OL].
+\newblock \url{http://wiki.lyx.org/LyX/XeTeX}, 2011.
+
+\bibitem[崔万照~等(2008)]{Meta_CN}
+崔万照, 马伟, 邱乐徳,等.
+\newblock {电磁超介质及其应用}[M].
+\newblock 北京: 国防工业出版社, 2008.
+
+\bibitem[Chen et al.(2007)]{chen2007ewi}
+Chen H, Wu B~I, Zhang B, et al.
+\newblock {Electromagnetic Wave Interactions with a Metamaterial Cloak}[J].
+\newblock Physical Review Letters, 2007, 99(6):63903.
+
+\bibitem[王宇 et al.(2009)]{wang_model_2009}
+王宇, 王志坚, 黄晓萍, et al.
+\newblock 基于可用性模型的志愿计算[J].
+\newblock 计算机工程, 2009.
+
+\bibitem[Kim et al.(2003)]{DPMG}
+Kim S, Woo N, Yeom H~Y, et al.
+\newblock Design and {I}mplementation of {D}ynamic {P}rocess {M}anagement for
+  {G}rid-enabled {MPICH}[A].
+\newblock In: the 10th European PVM/MPI Users' Group Conference[C].
+\newblock Venice, Italy, 2003.
+
+\bibitem[王重阳~等(2006)]{cnproceed}
+王重阳, 黄药师, 欧阳峰,等.
+\newblock 武林高手从入门到精通[A].
+\newblock 见： 第~$N$~次华山论剑[C].
+\newblock 西安, 中国: 中国古籍出版社, 2006.
+
+\bibitem[猪八戒(2005)]{zhubajie}
+猪八戒.
+\newblock 论流体食物的持久保存[D]:[硕士学位论文].
+\newblock 北京: 广寒宫大学, 2005.
+
+\bibitem[沙和尚(2005)]{shaheshang}
+沙和尚.
+\newblock 论流沙河的综合治理[D]：［博士学位论文］.
+\newblock 北京: 清华大学, 2005.
+
+\bibitem[Woo et al.(1995)]{NPB2}
+Woo A, Bailey D, Yarrow M, et al.
+\newblock The {NAS} Parallel Benchmarks 2.0[R].
+\newblock US: The Pennsylvania State University CiteSeer Archives, 1995.
+\newblock \url{http://www.nasa.org/}.
+
+\end{thebibliography}
