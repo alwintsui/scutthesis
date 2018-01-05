@@ -12,6 +12,12 @@
 5.       \end{split}
 6.       \end{equation}
 
+## To make equation gathered
+1.       \begin{gather}
+2.       y=mx+c \label{eq:eq1}\\ 
+3.       x=(n-2)+d \label{eq:eq2}
+4.       \end{gather}
+
 ## To make pseudo code algorithm ##
 A. add \usepackage{algorithmic}
 
