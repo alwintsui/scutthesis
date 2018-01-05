@@ -4,6 +4,14 @@
 3. save as pdf
 4. open the scutthesis.tex using tex editor, then compile using xelatex
 
+## To make Equation ##
+1.       \begin{equation}
+2.       \label{eq:split} 
+3.       \begin{split}
+4.       y&=mx+c\\        & \quad(n+o)x+c\\        &=1
+5.       \end{split}
+6.       \end{equation}
+
 ## To make pseudo code algorithm ##
 A. add \usepackage{algorithmic}
 
