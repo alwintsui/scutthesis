@@ -5,14 +5,14 @@
 4. open the scutthesis.tex using tex editor, then compile using xelatex
 
 ## To make pseudo code algorithm ##
-1. add \usepackage{algorithmic}
+A. add \usepackage{algorithmic}
 
-2. write the algorithm as follows
+B. write the algorithm as follows
 
-2.1.       \begin{algorithm}[htb]。
-2.2.       \caption{the title of algorithm}。
-2.3.       \label{alg:nice}。
-2.4.       \begin{algorithmic}[1]
-2.5.       ......
-2.6.       \end{algorithmic}
-2.7.       \end{algorithm}
+1.       \begin{algorithm}[htb]。
+2.       \caption{the title of algorithm}。
+3.       \label{alg:nice}。
+4.       \begin{algorithmic}[1]
+5.       ......
+6.       \end{algorithmic}
+7.       \end{algorithm}
