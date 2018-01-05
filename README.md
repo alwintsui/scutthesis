@@ -3,7 +3,7 @@
 ### How to use this Latex ###
 edited: alzami1986 - 2018-01-05
 
-Surprisingly, this latex cannot use Miktek repository, so if you want to use these latex, uninstall the Miktek and change into Tex Live newer version (i tried using 2017 and succeeded), then uninstall the tex editor (such as texstudio) and lyx to make fresh installation.
+Surprisingly, this latex cannot use Miktek repository, so if you want to use these latex, uninstall the Miktek and change into Tex Live newer version (I tried using 2017 and succeeded), then uninstall the tex editor (such as texstudio) and lyx to make fresh installation.
 
 【Requirements: for windows】
 1. install perl, you can get from: https://www.activestate.com/activeperl/downloads
