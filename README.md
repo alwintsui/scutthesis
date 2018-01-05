@@ -1,6 +1,7 @@
 华南理工大学学位论文Latex/Lyx模板
 =============================
 ### How to use this Latex ###
+--edited: alzami1986 - 2018-01-05--
 Surprisingly, this latex cannot use Miktek repository, so if you want to use these latex, uninstall the Miktek and change into Tex Live newer version (i tried using 2017 and succeeded), then uninstall the tex editor (such as texstudio) and lyx to make fresh installation.
 
 【Requirements: for windows】
@@ -15,9 +16,8 @@ Surprisingly, this latex cannot use Miktek repository, so if you want to use the
 9. after succeded, install texstudio and lyx
 10. finish
 11. turn on the anti virus.
-
-### I already installed all needed fonts, but in case you need it, you can install from fonts directory which I provided ###
-edited: alzami1986 - 2018-01-05
+12. install fonts
+13. open texstudio, open the latex file, compile with xelatex
 
 Q.A:
 1. Q: which is better, TexLive of MikTek?
@@ -32,6 +32,7 @@ Q.A:
    A: just follow how to install TexLive. should be fine. (like I said, I like Miktek, so I put Miktek in my linux)
 
 ###NOTICE###
+
 https://code.google.com/p/scutthesis/ is deprecated after November 11, 2014, and new updates of scutthesis will be released at https://github.com/alwintsui/scutthesis .
 
 【主要特色】
