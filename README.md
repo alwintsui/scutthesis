@@ -21,11 +21,14 @@ edited: alzami1986 - 2018-01-05
 
 Q.A:
 1. Q: which is better, TexLive of MikTek?
+
    A: I like Miktek, but if you installed TexLive, it can become as subtitute. (now I am stick with TexLive)
 2. Q: can I install MikTek together with TexLIve?
+
    A: I don't know, please find the answer using google search. 
       (personally, I failed install those two in same system, so in windows I used TexLive, in Linux I used Miktek)
 3. Q: How to use these latex in Linux?
+
    A: just follow how to install TexLive. should be fine. (like I said, I like Miktek, so I put Miktek in my linux)
 
 ###NOTICE###
