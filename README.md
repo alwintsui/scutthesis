@@ -1,7 +1,7 @@
 华南理工大学学位论文Latex/Lyx模板
 =============================
 ### How to use this Latex ###
---edited: alzami1986 - 2018-01-05--
+edited: alzami1986 - 2018-01-05
 
 Surprisingly, this latex cannot use Miktek repository, so if you want to use these latex, uninstall the Miktek and change into Tex Live newer version (i tried using 2017 and succeeded), then uninstall the tex editor (such as texstudio) and lyx to make fresh installation.
 
