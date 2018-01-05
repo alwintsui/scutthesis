@@ -9,7 +9,7 @@ Surprisingly, this latex cannot use Miktek repository, so if you want to use the
 3. turn off the anti virus (yes, it's really annoying)
 4. open install-tl-windows as administrator
 5. choose unpack
-6. open the command prompt, go to unpack directory, and execute install-tl-advanced.bat
+6. open the command prompt (as administrator), go to unpack directory, and execute install-tl-advanced.bat
 7. change default repository (choose the nearest repository location)
 8. select the features you want to install (or just leave it be, but it is 5GB though).
 9. after succeded, install texstudio and lyx
