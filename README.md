@@ -2,6 +2,7 @@
 =============================
 ### How to use this Latex ###
 --edited: alzami1986 - 2018-01-05--
+
 Surprisingly, this latex cannot use Miktek repository, so if you want to use these latex, uninstall the Miktek and change into Tex Live newer version (i tried using 2017 and succeeded), then uninstall the tex editor (such as texstudio) and lyx to make fresh installation.
 
 【Requirements: for windows】
@@ -30,6 +31,8 @@ Q.A:
 3. Q: How to use these latex in Linux?
 
    A: just follow how to install TexLive. should be fine. (like I said, I like Miktek, so I put Miktek in my linux)
+
+-- official notes from original authors --
 
 ###NOTICE###
 
