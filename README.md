@@ -23,7 +23,9 @@ Surprisingly, this latex cannot use Miktek repository, so if you want to use the
 Q.A:
 1. Q: how to use these latex
 
-   A: whoa, slow down, I also just using these, so the tutorial I put on https://github.com/alzami1986/scutthesis/blob/master/how_to_use_latex.md (ps: I will update frequently. If you can chinese language, just open the scutthesis.tex, the laoshi already gave detailed explanation)
+   A: whoa, slow down, I also just using these, so the tutorial I put on https://github.com/alzami1986/scutthesis/blob/master/how_to_use_latex.md 
+   
+      (ps: I will update frequently. If you can chinese language, just open the scutthesis.tex, the laoshi already gave detailed explanation)
    
 2. Q: which is better, TexLive of MikTek?
 
