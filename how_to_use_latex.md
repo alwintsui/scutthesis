@@ -14,3 +14,8 @@
           ......
           \end{algorithmic}
           \end{algorithm}
+
+
+1.       采用RequirePackage指令导入longtable包，并修正“研究成果”节表格无法自动分页的错误。
+2.       修正chapterx指令奇偶页眉互换错误，影响“参考文献”、“攻读＊＊＊的研究成果”和“致谢”节的页眉切换。
+3.       修正在最新tex发行版下xeCJK包的CJKnumber选项deprecated的错误，额外引入新包CJKnumb。
