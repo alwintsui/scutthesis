@@ -5,17 +5,15 @@
 4. open the scutthesis.tex using tex editor, then compile using xelatex
 
 ## To make pseudo code algorithm ##
-1. add \usepackage{algorithmic}
+1. 
 2. write the algorithm as follows
-2.1       \begin{algorithm}[htb]
-          \caption{the title of algorithm}
-          \label{alg:nice}
-          \begin{algorithmic}[1]
-          ......
-          \end{algorithmic}
-          \end{algorithm}
+2.1       
+ 
 
-
-1.       采用RequirePackage指令导入longtable包，并修正“研究成果”节表格无法自动分页的错误。
-2.       修正chapterx指令奇偶页眉互换错误，影响“参考文献”、“攻读＊＊＊的研究成果”和“致谢”节的页眉切换。
-3.       修正在最新tex发行版下xeCJK包的CJKnumber选项deprecated的错误，额外引入新包CJKnumb。
+1.       \begin{algorithm}[htb]。
+2.       \caption{the title of algorithm}。
+3.       \label{alg:nice}。
+4.       \begin{algorithmic}[1]
+5.       ......
+6.       \end{algorithmic}
+7.       \end{algorithm}
