@@ -21,7 +21,7 @@ Surprisingly, this latex cannot use Miktek repository, so if you want to use the
 13. open texstudio, open the latex file, compile with xelatex
 
 Q.A:
-1. Q: how to use these latex
+1. Q: how to use these latex?
 
    A: whoa, slow down, I also just using these, so the tutorial I put on https://github.com/alzami1986/scutthesis/blob/master/how_to_use_latex.md 
    
