@@ -32,7 +32,7 @@ Q.A:
 
    A: just follow how to install TexLive. should be fine. (like I said, I like Miktek, so I put Miktek in my linux)
 
--- official notes from original authors --
+-- below is the official notes from original authors --
 
 ###NOTICE###
 
