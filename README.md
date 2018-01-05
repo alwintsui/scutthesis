@@ -2,6 +2,7 @@
 =============================
 ### How to use this Latex ###
 Surprisingly, this latex cannot use Miktek repository, so if you want to use these latex, uninstall the Miktek and change into Tex Live newer version (i tried using 2017 and succeeded), then uninstall the tex editor (such as texstudio) and lyx to make fresh installation.
+
 【Requirements: for windows】
 1. install perl, you can get from: https://www.activestate.com/activeperl/downloads
 2. obtain Tex Live, you can get from: http://tug.org/texlive/acquire-netinstall.html
