@@ -16,7 +16,7 @@ Surprisingly, this latex cannot use Miktek repository, so if you want to use the
 10. finish
 11. turn on the anti virus.
 
-## I already installed all needed fonts, but in case you need it, you can install from fonts directory which I provided ##
+### I already installed all needed fonts, but in case you need it, you can install from fonts directory which I provided ###
 edited: alzami1986 - 2018-01-05
 
 Q.A:
