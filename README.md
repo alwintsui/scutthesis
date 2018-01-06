@@ -1,5 +1,7 @@
 华南理工大学学位论文Latex/Lyx模板
 =============================
+### Notes ###
+for who dont want use the latex, I also provided with the word template as graduation2017template.doc
 ### How to use this Latex ###
 edited: alzami1986 - 2018-01-05
 
