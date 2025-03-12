@@ -21,12 +21,13 @@
 
 %% import global options
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newif\ifmasterdegree\masterdegreefalse %默认为doctor
+\newif\ifmasterdegree\masterdegreetrue %默认为master
 \newif\ifpdfcover\pdfcoverfalse
 \newif\ifchapterx\chapterxfalse
 
 \DeclareOption{master}{\masterdegreetrue}
-\DeclareOption{pdfcover}{\pdfcovertrue} %using pdfcover,TOdo
+\DeclareOption{doctor}{\masterdegreefalse} % 添加 doctor 选项，切换到博士模式
+%\DeclareOption{pdfcover}{\pdfcovertrue} %using pdfcover
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax %revised by Quansheng Guan \ProcessOptions
 \LoadClass[12pt,a4paper,openany]{book}
@@ -75,8 +76,8 @@
 \setCJKmainfont{SimSun}
 \setCJKfamilyfont{song}{SimSun}
 \setCJKfamilyfont{hei}{SimHei}
-\setCJKfamilyfont{kai}{KaiTi_GB2312}
-\setCJKfamilyfont{fang}{FangSong_GB2312}
+\setCJKfamilyfont{kai}{KaiTi}
+\setCJKfamilyfont{fang}{FangSong}
 
 \newcommand{\songti}{\CJKfamily{song}}
 \newcommand{\heiti}{\CJKfamily{hei}}
@@ -332,8 +333,8 @@
   \sethead[][{\headfont{}\thesissubject}][] % 页眉偶数页
   {}{{\headfont{}\@chapterxname}}{} % 页眉奇数页
  \else
-  \sethead[][{\headfont{}\thesissubject}][] % 页眉偶数页，五号字体，居中
-  {}{{\headfont{}\chaptertitlename\quad\chaptertitle}}{} % 页眉奇数页，五号字体，居中
+   \sethead[][{\headfont{}\thesissubject}][] % 页眉偶数页，五号字体，居中
+   {}{{\headfont{}\chaptertitlename\quad\chaptertitle}}{} % 页眉奇数页，五号字体，居中
  \fi
   \setfoot[][\headfont{}\thepage][] %偶数页码五号宋体居右
    {}{\headfont{}\thepage}{}%页码五号宋体居右
@@ -343,7 +344,7 @@
 
 \let\orig@bibliography=\bibliography
 \renewcommand{\bibliography}[1]{
-	\cleardoublepage % 使参考文献使用 seunolabel 页面样式
+%	\cleardoublepage % 使参考文献使用 seunolabel 页面样式
 	\refbodyfont
         \chapterxtrue % 改变页眉标题方式
         \chapterxname{\bibname}
@@ -404,7 +405,7 @@
 \vskip 4em
 
 \bigskip
-\centerline{\heiti\yihao  {\@title} }
+\centering{\heiti\yihao  {\@title} }
 \vskip 2em
 
 \bigskip
@@ -453,7 +454,7 @@
   \addcontentsline{toc}{chapter}{#1}
 }
 
-%有些章节名如“致谢”、“附录”，无需章节编号，相当于chapter*，但需要把章节名加入目录，相应的页眉也要改动
+%有些章节名如“致谢”，无需章节编号，相当于chapter*，但需要把章节名加入目录，相应的页眉也要改动
 %通过\chapterx和\chapterxname来完成。
 \def \chapterxname#1{\gdef\@chapterxname{#1}}
 \newcommand{\chapterx}[1]
@@ -464,14 +465,33 @@
   \addcontentsline{toc}{chapter}{#1}
 }
 
+
 \renewcommand{\appendix}[1]{%
   % \chaptertitle is not available for those chapters without label number.
-   \cleardoublepage 
+  % \cleardoublepage 
    \renewcommand{\thesection}{{#1}\arabic{section}} 
    \chapter*{#1}
    \chapterxname{\thesection\quad\sectiontitle}
    \addcontentsline{toc}{chapter}{#1}
    \setcounter{section}{0}
+}
+
+\newcommand{\conclusion}[1]{%
+  % \chaptertitle is not available for those chapters without label number.
+ %  \cleardoublepage 
+   \chapterxtrue
+   \chapter*{#1}
+   \chapterxname{#1}
+   \addcontentsline{toc}{chapter}{#1}
+   \pagestyle{revtitlestyle}
+}
+
+\newcommand{\subconclusion}[1]{%
+	\chapterxtrue
+	\chapterxname{结~~论}
+	\section*{#1}
+	\addcontentsline{toc}{section}{#1}
+	\pagestyle{revtitlestyle}
 }
 
 \renewenvironment{verse}
