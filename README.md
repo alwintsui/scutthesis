@@ -1,7 +1,51 @@
 华南理工大学学位论文Latex/Lyx模板
 =============================
+### Notes ###
+for who dont want use the latex, I also provided with the word template as graduation2017template.doc
+### How to use this Latex ###
+edited: alzami1986 - 2018-01-05
+
+Surprisingly, this latex cannot use Miktek repository, so if you want to use these latex, uninstall the Miktek and change into Tex Live newer version (I tried using 2017 and succeeded), then uninstall the tex editor (such as texstudio) and lyx to make fresh installation.
+
+【Requirements: for windows】
+1. install perl, you can get from: https://www.activestate.com/activeperl/downloads
+2. obtain Tex Live, you can get from: http://tug.org/texlive/acquire-netinstall.html
+3. turn off the anti virus (yes, it's really annoying)
+4. open install-tl-windows as administrator
+5. choose unpack
+6. open the command prompt (as administrator), go to unpack directory, and execute install-tl-advanced.bat
+7. change default repository (choose the nearest repository location)
+8. select the features you want to install (or just leave it be, but it is 5GB though).
+9. after succeded, install texstudio and lyx
+10. finish
+11. turn on the anti virus.
+12. install fonts
+13. open texstudio, open the latex file, compile with xelatex
+
+Q.A:
+1. Q: how to use these latex?
+
+   A: whoa, slow down, I also just using these, so the tutorial I put on https://github.com/alzami1986/scutthesis/blob/master/how_to_use_latex.md 
+   
+      (ps: I will update frequently. If you can chinese language, just open the scutthesis.tex, the laoshi already gave detailed explanation)
+   
+2. Q: which is better, TexLive of MikTek?
+
+   A: I like Miktek, but if you installed TexLive, it can become as subtitute. (now I am stick with TexLive)
+   
+3. Q: can I install MikTek together with TexLIve?
+
+   A: I don't know, please find the answer using google search. 
+      (personally, I failed install those two in same system, so in windows I used TexLive, in Linux I used Miktek)
+      
+4. Q: How to use these latex in Linux?
+
+   A: just follow how to install TexLive. should be fine. (like I said, I like Miktek, so I put Miktek in my linux)
+
+-- below is the official notes from original authors --
 
 ###NOTICE###
+
 https://code.google.com/p/scutthesis/ is deprecated after November 11, 2014, and new updates of scutthesis will be released at https://github.com/alwintsui/scutthesis .
 
 【主要特色】
