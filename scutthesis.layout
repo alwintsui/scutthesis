@@ -222,6 +222,19 @@ Style Appendix
 	Category		BackMatter
 End
 
+Style Conclusion
+	CopyStyle	      Chapter*
+#	LabelString	      "Conclusion"
+	LatexName		conclusion
+	Category		BackMatter
+End
+
+Style Subconclusion
+	CopyStyle	      Section*
+#	LabelString	      "Subconclusion"
+	LatexName		subconclusion
+	Category		BackMatter
+End
 
 Input stdfloats.inc
 Input stdcounters.inc
